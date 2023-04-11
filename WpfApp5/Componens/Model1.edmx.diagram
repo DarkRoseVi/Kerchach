@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="995a21a4b98d422e840fb3ff8b881ac7" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="CookModel.Category" PointX="3.75" PointY="3.25" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.CookingStage" PointX="8.25" PointY="11.875" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.CountryOrigin" PointX="9" PointY="2.5" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.CountryOriginDish" PointX="11.25" PointY="3.25" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.DegreeSharpness" PointX="3.75" PointY="9.625" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.Dish" PointX="6" PointY="5.375" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.Employees" PointX="3" PointY="5.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.Ingredient" PointX="9" PointY="14.875" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.IngredientOfCookingSage" PointX="10.5" PointY="11.875" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.Landing" PointX="11.25" PointY="15.125" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.Order" PointX="8.25" PointY="5.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.Otdel" PointX="0.75" PointY="6.375" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.Provider" PointX="9" PointY="19.25" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.Role" PointX="0.75" PointY="3.375" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.sysdiagrams" PointX="0.75" PointY="9.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.Unit" PointX="6.75" PointY="15.5" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CookModel.Сlient" PointX="6" PointY="1.875" Width="1.5" IsExpanded="true" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Dish_Category" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_CookingStage_Dish" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_IngredientOfCookingSage_CookingStage" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_CountryOriginDish_CountryOrigin" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_CountryOriginDish_Dish" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Dish_DegreeSharpness" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Dish_Otdel" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Order_Dish" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Employees_Otdel" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Employees_Role" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Order_Employees" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Ingredient_Unit" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_IngredientOfCookingSage_Ingredient" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Landing_Ingredient" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Landing_Provider" />
+        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Order_Сlient" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
