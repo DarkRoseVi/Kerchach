@@ -14,6 +14,12 @@ namespace WpfApp5.Componens
     
     public partial class Order
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Order()
+        {
+            this.Dish = new HashSet<Dish>();
+        }
+    
         public int Id { get; set; }
         public Nullable<int> EmployeesId { get; set; }
         public Nullable<int> ClientId { get; set; }
@@ -22,8 +28,9 @@ namespace WpfApp5.Componens
         public Nullable<int> Cost { get; set; }
         public Nullable<decimal> Sum { get; set; }
     
-        public virtual Dish Dish { get; set; }
         public virtual Employees Employees { get; set; }
         public virtual Сlient Сlient { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dish> Dish { get; set; }
     }
 }

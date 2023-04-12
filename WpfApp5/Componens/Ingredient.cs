@@ -19,7 +19,6 @@ namespace WpfApp5.Componens
         {
             this.IngredientOfCookingSage = new HashSet<IngredientOfCookingSage>();
             this.Landing = new HashSet<Landing>();
-            this.Recipe = new HashSet<Recipe>();
         }
     
         public int Id { get; set; }
@@ -33,7 +32,5 @@ namespace WpfApp5.Componens
         public virtual ICollection<IngredientOfCookingSage> IngredientOfCookingSage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Landing> Landing { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Recipe> Recipe { get; set; }
     }
 }

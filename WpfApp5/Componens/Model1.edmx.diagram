@@ -4,40 +4,39 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="995a21a4b98d422e840fb3ff8b881ac7" Name="Diagram1" ZoomLevel="81">
-        <EntityTypeShape EntityType="CookModel.Category" PointX="3.75" PointY="3.25" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.CookingStage" PointX="8.25" PointY="11.875" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.CountryOrigin" PointX="9" PointY="2.5" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.CountryOriginDish" PointX="11.25" PointY="3.25" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.DegreeSharpness" PointX="3.75" PointY="9.625" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.Dish" PointX="6" PointY="5.375" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.Employees" PointX="3" PointY="5.75" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.Ingredient" PointX="9" PointY="14.875" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.IngredientOfCookingSage" PointX="10.5" PointY="11.875" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.Landing" PointX="11.25" PointY="15.125" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.Order" PointX="8.25" PointY="5.75" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.Otdel" PointX="0.75" PointY="6.375" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.Provider" PointX="9" PointY="19.25" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.Role" PointX="0.75" PointY="3.375" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.sysdiagrams" PointX="0.75" PointY="9.75" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.Unit" PointX="6.75" PointY="15.5" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CookModel.Сlient" PointX="6" PointY="1.875" Width="1.5" IsExpanded="true" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Dish_Category" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_CookingStage_Dish" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_IngredientOfCookingSage_CookingStage" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_CountryOriginDish_CountryOrigin" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_CountryOriginDish_Dish" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Dish_DegreeSharpness" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Dish_Otdel" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Order_Dish" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Employees_Otdel" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Employees_Role" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Order_Employees" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Ingredient_Unit" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_IngredientOfCookingSage_Ingredient" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Landing_Ingredient" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Landing_Provider" />
-        <AssociationConnector ManuallyRouted="false" Association="CookModel.FK_Order_Сlient" />
+      <Diagram DiagramId="4e51ff7cdbc3486591a1718b2e079e8e" Name="Diagram1">
+        <EntityTypeShape EntityType="kersachViModel.Category" Width="1.5" PointX="3.75" PointY="10.125" />
+        <EntityTypeShape EntityType="kersachViModel.CookingStage" Width="1.5" PointX="8.25" PointY="13" />
+        <EntityTypeShape EntityType="kersachViModel.CountryOrigin" Width="1.5" PointX="9" PointY="2.875" />
+        <EntityTypeShape EntityType="kersachViModel.CountryOriginDish" Width="1.5" PointX="11.25" PointY="6.75" />
+        <EntityTypeShape EntityType="kersachViModel.DegreeSharpness" Width="1.5" PointX="3.75" PointY="3.75" />
+        <EntityTypeShape EntityType="kersachViModel.Dish" Width="1.5" PointX="6" PointY="5.875" />
+        <EntityTypeShape EntityType="kersachViModel.Employees" Width="1.5" PointX="3" PointY="6.125" />
+        <EntityTypeShape EntityType="kersachViModel.Ingredient" Width="1.5" PointX="8.25" PointY="16.875" />
+        <EntityTypeShape EntityType="kersachViModel.IngredientOfCookingSage" Width="1.5" PointX="10.5" PointY="13.125" />
+        <EntityTypeShape EntityType="kersachViModel.Order" Width="1.5" PointX="8.25" PointY="6.25" />
+        <EntityTypeShape EntityType="kersachViModel.Otdel" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="kersachViModel.Provider" Width="1.5" PointX="8.25" PointY="21.125" />
+        <EntityTypeShape EntityType="kersachViModel.Role" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="kersachViModel.Unit" Width="1.5" PointX="6" PointY="17.375" />
+        <EntityTypeShape EntityType="kersachViModel.Сlient" Width="1.5" PointX="6" PointY="2.375" />
+        <AssociationConnector Association="kersachViModel.FK_Dish_Category" />
+        <AssociationConnector Association="kersachViModel.FK_CookingStage_Dish" />
+        <AssociationConnector Association="kersachViModel.FK_IngredientOfCookingSage_CookingStage" />
+        <AssociationConnector Association="kersachViModel.FK_CountryOriginDish_CountryOrigin" />
+        <AssociationConnector Association="kersachViModel.FK_CountryOriginDish_Dish" />
+        <AssociationConnector Association="kersachViModel.FK_Dish_DegreeSharpness" />
+        <AssociationConnector Association="kersachViModel.FK_Dish_Otdel" />
+        <AssociationConnector Association="kersachViModel.FK_Employees_Otdel" />
+        <AssociationConnector Association="kersachViModel.FK_Employees_Role" />
+        <AssociationConnector Association="kersachViModel.FK_Order_Employees" />
+        <AssociationConnector Association="kersachViModel.FK_Ingredient_Unit" />
+        <AssociationConnector Association="kersachViModel.FK_IngredientOfCookingSage_Ingredient" />
+        <AssociationConnector Association="kersachViModel.FK_Order_Сlient" />
+        <AssociationConnector Association="kersachViModel.OrderDish" />
+        <EntityTypeShape EntityType="kersachViModel.Landing" Width="1.5" PointX="10.5" PointY="18.875" />
+        <AssociationConnector Association="kersachViModel.FK_Landing_Ingredient" />
+        <AssociationConnector Association="kersachViModel.FK_Landing_Provider" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

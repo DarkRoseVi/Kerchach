@@ -24,26 +24,46 @@ namespace WpfApp5.MyPages
     /// </summary>
     public partial class ProviderInfoPage : Page
     {
-      
-  public ObservableCollection<Ingredient> ingrediebt
+        public static ProviderInfoPage Instance { get; private set; }
+
+        public IEnumerable<Ingredient> ingrediebt
         {
-            get { return (ObservableCollection<Ingredient>)GetValue(ingrediebtProperty); }
+            get { return (IEnumerable<Ingredient>)GetValue(ingrediebtProperty); }
             set { SetValue(ingrediebtProperty, value); }
         }
 
         public static readonly DependencyProperty ingrediebtProperty =
-            DependencyProperty.Register("ingrediebt", typeof(ObservableCollection<Ingredient>), typeof(ObservableCollection<Ingredient>));
+            DependencyProperty.Register("ingrediebt", typeof(IEnumerable<Ingredient>), typeof(ObservableCollection<Ingredient>));
 
 
 
-        public Provider proviser { get; set; }
+        public IEnumerable<Landing> landings
+        {
+            get { return (IEnumerable<Landing>)GetValue(landingsProperty); }
+            set { SetValue(landingsProperty, value); }
+        }
+        public static readonly DependencyProperty landingsProperty =
+            DependencyProperty.Register("landings", typeof(IEnumerable<Landing>), typeof(ProviderInfoPage));
+
+
+
+        public Provider Proviser { get; set; }
         public ProviderInfoPage(Provider _provider)
         {
-            proviser = _provider;
-            BdConect.db.Ingredient.Load();
-            ingrediebt = BdConect.db.Ingredient.Local;
+            Proviser = _provider;
+            
+            ingrediebt = BdConect.db.Ingredient.ToList();
+            
             InitializeComponent();
-           ProductLw.ItemsSource = BdConect.db.Landing.Where(x => x.ProviderId == proviser.Id).ToList();
+
+            Instance = this;
+
+            UpdateIngridientList(Proviser);
+        }
+
+        public static void UpdateIngridientList(Provider Proviser)
+        {
+            Instance.landings = BdConect.db.Landing.Where(x => x.ProviderId == Proviser.Id).ToList();
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
@@ -51,12 +71,18 @@ namespace WpfApp5.MyPages
             var ProviderId = BdConect.db.Provider.Where(x => x.Title == NameTb.Text.Trim()).FirstOrDefault();
             if (ProviderId == null)
             {
-                BdConect.db.Provider.Add(proviser);
+                BdConect.db.Provider.Add(Proviser);
                 MessageBox.Show("Yes");
             }
             BdConect.db.SaveChanges();
-            Navidation.NextPage(new Nav("", new ProviderPage()));
+              
+ 
+              
+                Navidation.NextPage(new Nav("", new ProviderPage()));
 
         }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e) =>
+            new AddIngredientProv(landings, Proviser).ShowDialog();
     }
 }
