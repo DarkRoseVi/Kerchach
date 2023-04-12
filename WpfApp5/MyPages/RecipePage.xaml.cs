@@ -24,51 +24,50 @@ namespace WpfApp5.MyPages
     /// </summary>
     public partial class RecipePage : Page
     {
-        public static Recipe instance { get; private set; }
-        public IEnumerable<CookingStage> CookingStage
+        public IEnumerable<IngredientOfCookingSage> IngredientOfCookings
         {
-            get { return (IEnumerable<CookingStage>)GetValue(CookingStageProperty); }
-            set { SetValue(CookingStageProperty, value); }
+            get { return (IEnumerable<IngredientOfCookingSage>)GetValue(IngredientOfCookingsProperty); }
+            set { SetValue(IngredientOfCookingsProperty, value); }
         }
 
-        public static readonly DependencyProperty CookingStageProperty =
-            DependencyProperty.Register("CookingStage", typeof(IEnumerable<CookingStage>), typeof(Recipe));
+        public static readonly DependencyProperty IngredientOfCookingsProperty =
+            DependencyProperty.Register("IngredientOfCookings", typeof(IEnumerable<IngredientOfCookingSage>), typeof(RecipePage));
 
-        public IEnumerable<IngredientOfCookingSage> IngredientOfStage
+        public IEnumerable<CookingStage> CookingStages
         {
-            get { return (IEnumerable<IngredientOfCookingSage>)GetValue(IngredientOfStageProperty); }
-            set { SetValue(IngredientOfStageProperty, value); }
+            get { return (IEnumerable<CookingStage>)GetValue(CookingStagesProperty); }
+            set { SetValue(CookingStagesProperty, value); }
         }
 
-        public static readonly DependencyProperty IngredientOfStageProperty =
-            DependencyProperty.Register("IngredientOfStage", typeof(IEnumerable<IngredientOfCookingSage>), typeof(Recipe));
-
-        public Dish DishObject
-        {
-            get { return (Dish)GetValue(DishesProperty); }
-            set { SetValue(DishesProperty, value); }
-        }
-        public static readonly DependencyProperty DishesProperty =
-         DependencyProperty.Register("DishObject", typeof(Dish), typeof(Recipe));
+        public static readonly DependencyProperty CookingStagesProperty =
+            DependencyProperty.Register("CookingStages", typeof(IEnumerable<CookingStage>), typeof(IngredientOfCookingSage));
 
         public Dish dish { get; set; }
         public RecipePage(Dish _dish)
         {
-            BdConect.db.IngredientOfCookingSage.Load();
-            IngredientOfStage = BdConect.db.IngredientOfCookingSage.Local;
-            CookingStage = _dish.CookingStage;
-            DishObject = _dish;
-          
-            InitializeComponent();
-            instance = this;
+            IngredientOfCookings = BdConect.db.CookingStage.Where(x => x.DishId == _dish.Id).SelectMany(s => s.IngredientOfCookingSage).ToList();
+            CookingStages = BdConect.db.CookingStage.Where(x => x.DishId == _dish.Id).ToList();
+       
             dish = _dish;
+
         
-           
+            InitializeComponent();
         }
 
-        private void Go_Click(object sender, RoutedEventArgs e)
+
+        private void AddIngredBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddCookStageBtn_Click(object sender, RoutedEventArgs e)
+        {
+        
         }
     }
 }

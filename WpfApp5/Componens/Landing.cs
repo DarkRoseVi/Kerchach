@@ -14,9 +14,8 @@ namespace WpfApp5.Componens
     
     public partial class Landing
     {
-        public int Id { get; set; }
-        public Nullable<int> IngredientId { get; set; }
-        public Nullable<int> ProviderId { get; set; }
+        public int IngredientId { get; set; }
+        public int ProviderId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> Quantity { get; set; }
     

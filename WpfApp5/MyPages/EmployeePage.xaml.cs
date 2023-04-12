@@ -36,14 +36,16 @@ namespace WpfApp5.MyPages
         {
             var em = (sender as Button).DataContext as Employees;
             Navidation.NextPage(new Nav("Редактирвоание сотрдуника", new EditEmployeePage(em)));
-            if (MessageBox.Show("Вы точно хотите удалить эту запись", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            BdConect.db.Employees.Remove(em);
+         
         }
 
         private void DeletBtn_Click(object sender, RoutedEventArgs e)
         {
-            var em = (sender as Button).DataContext as Employees; 
-
+            var em = (sender as Button).DataContext as Employees;
+            if (MessageBox.Show("Вы точно хотите удалить эту запись", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                BdConect.db.Employees.Remove(em);
+            BdConect.db.SaveChanges();
+            EmployeeLW.ItemsSource = BdConect.db.Employees.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

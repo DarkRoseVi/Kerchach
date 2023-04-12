@@ -43,5 +43,15 @@ namespace WpfApp5
         {
             Navidation.NextPage(new Nav("Список поставщиков", new ProviderPage()));
         }
+
+        private void OrderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navidation.NextPage(new Nav("", new OrderPage()));
+        }
+
+        private void ClientBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navidation.NextPage(new Nav("", new ClientPage()));
+        }
     }
 }

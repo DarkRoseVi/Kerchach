@@ -20,7 +20,6 @@ namespace WpfApp5.Componens
             this.CookingStage = new HashSet<CookingStage>();
             this.CountryOriginDish = new HashSet<CountryOriginDish>();
             this.Order = new HashSet<Order>();
-            this.Recipe = new HashSet<Recipe>();
         }
     
         public int Id { get; set; }
@@ -41,7 +40,5 @@ namespace WpfApp5.Componens
         public virtual Otdel Otdel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Recipe> Recipe { get; set; }
     }
 }

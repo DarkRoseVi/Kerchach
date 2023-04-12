@@ -23,15 +23,15 @@
 
         <Image Source="C:\Users\hp\source\repos\WpfApp5\WpfApp5\Images\20b200b3248f72d9de79609b1652eccd.jpg" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0"></Image>
 
-        <Frame Grid.Row="1" x:Name="MyFrame"  Grid.Column="2"/>
+        <Frame Grid.Row="1" x:Name="MyFrame"  Grid.Column="2" NavigationUIVisibility="Hidden"/>
         <StackPanel Background="Yellow" Grid.Row="1" Grid.Column="0">
             <Button Content="Блюда" x:Name="DishBtn" Click="DishBtn_Click"></Button>
             <Button Content="Сотрудники" x:Name="EmployeeBtn" Click="EmployeeBtn_Click" Style="{StaticResource Mybutton}"></Button>
-            <Button Content="Клиенты" x:Name="ClientBtn"></Button>
+            <Button Content="Клиенты" x:Name="ClientBtn" Click="ClientBtn_Click"></Button>
             <Button Content="Поставки"  x:Name="LandingBtn"></Button>
             <Button Content="Поставщики" x:Name="ProviderBtn" Click="ProviderBtn_Click" ></Button>
             <Button Content="Ингредиенты" x:Name="IngredientBtn"></Button>
-            <Button Content="Заказы" x:Name="OrderBtn"></Button>
+            <Button Content="Заказы" x:Name="OrderBtn" Click="OrderBtn_Click"></Button>
         </StackPanel>
         <StackPanel Background="Yellow" Grid.Column="1" Grid.Row="3">
             
