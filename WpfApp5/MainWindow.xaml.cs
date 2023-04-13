@@ -46,12 +46,17 @@ namespace WpfApp5
 
         private void OrderBtn_Click(object sender, RoutedEventArgs e)
         {
-            Navidation.NextPage(new Nav("", new OrderPage()));
+            Navidation.NextPage(new Nav("список заказов", new OrderPage()));
         }
 
         private void ClientBtn_Click(object sender, RoutedEventArgs e)
         {
-            Navidation.NextPage(new Nav("", new ClientPage()));
+            Navidation.NextPage(new Nav("списко клиентов", new ClientPage()));
+        }
+
+        private void IngredientBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navidation.NextPage(new Nav("Список ингредиентов", new IngrediensPage()));
         }
     }
 }

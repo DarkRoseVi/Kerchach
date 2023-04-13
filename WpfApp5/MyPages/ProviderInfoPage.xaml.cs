@@ -78,7 +78,7 @@ namespace WpfApp5.MyPages
               
  
               
-                Navidation.NextPage(new Nav("", new ProviderPage()));
+                Navidation.NextPage(new Nav("Поставщики", new ProviderPage()));
 
         }
 

@@ -6,6 +6,8 @@
       xmlns:local="clr-namespace:WpfApp5.MyPages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+
       Title="AddOrderPage">
 
     <Grid>
@@ -28,15 +30,16 @@
                       SelectedItem="{Binding orders.Employees}"></ComboBox>
             <Button Content="Сохранить" x:Name="SaveBtn" Click="SaveBtn_Click"></Button>
         </StackPanel>
+        
         <ListView Grid.Row="0"
                   Grid.Column="1"
-                  ItemsSource="{Binding landings}"
+                  ItemsSource="{Binding diseslidt}"
                   x:Name="ProductLw"
                   d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <TextBlock Text="{Binding Dish.Title}"/>
+                        <TextBlock Text="{Binding Title}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

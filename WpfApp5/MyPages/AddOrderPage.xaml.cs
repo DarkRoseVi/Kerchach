@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,20 +26,22 @@ namespace WpfApp5.MyPages
         public static AddOrderPage Instance { get; private set; }
 
 
-        public IEnumerable<Dish> diseslidt
+        public ObservableCollection<Dish> diseslidt
         {
-            get { return (IEnumerable<Dish>)GetValue(diseslidtProperty); }
+            get { return (ObservableCollection<Dish>)GetValue(diseslidtProperty); }
             set { SetValue(diseslidtProperty, value); }
         }
         public static readonly DependencyProperty diseslidtProperty =
-            DependencyProperty.Register("diseslidt", typeof(IEnumerable<Dish>), typeof(AddOrderPage));
-
+            DependencyProperty.Register("diseslidt", typeof(ObservableCollection<Dish>), typeof(AddOrderPage));
 
         public Order orders { get; set; }
+
         public AddOrderPage(Order _orders)
         {
             orders = _orders;
-            diseslidt = BdConect.db.Dish.ToList();
+
+            diseslidt  = new ObservableCollection<Dish>();
+
             InitializeComponent();
             Instance = this;
            
@@ -47,20 +50,18 @@ namespace WpfApp5.MyPages
             EmployeeCb.ItemsSource = BdConect.db.Employees.ToList();
             EmployeeCb.DisplayMemberPath = "LastName";
         }
-
+        
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            BdConect.db.Order.Add(new Order
-            {
-               // ClientId = ClientCb
-              // EmployeesId
-             
-            }
-            ) ;
+            orders.Dish = diseslidt;
+            BdConect.db.Order.Add(orders);
+            BdConect.db.SaveChanges();
             
+            MessageBox.Show("yes");
+            Navidation.NextPage(new Nav("",new OrderPage()));
         }
 
-        private void AddBtn_Click(object sender, RoutedEventArgs e)=>
-         //   new AddIngredientProv(diseslidt, _orders).ShowDialog();
+        private void AddBtn_Click(object sender, RoutedEventArgs e) =>
+            new DishOrderAdd(diseslidt, orders).ShowDialog();
     }
 }

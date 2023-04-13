@@ -15,31 +15,30 @@
             <RowDefinition Height="53*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
-            
+
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="5"></TextBlock>
-                <TextBox x:Name="PoisTb" Style="{StaticResource MyTextBox}" Margin="5"></TextBox>
+                <TextBox x:Name="PoisTb" Style="{StaticResource MyTextBox}" Margin="5" TextChanged="PoisTb_TextChanged"></TextBox>
             </StackPanel>
 
         </StackPanel>
-        <ListView Grid.Row="1" x:Name="ClientLW" d:ItemsSource="{d:SampleData ItemCount=5}"  >
+        <ListView x:Name="ClientLW" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="1"  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="250"></ColumnDefinition>
+                            <ColumnDefinition Width="400"></ColumnDefinition>
                             <ColumnDefinition Width="100"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Orientation="Horizontal">
-                            <TextBlock>Имя</TextBlock>
+                            <TextBlock Margin="5">Имя</TextBlock>
                             <TextBlock Text="{Binding FUO}" Margin="5"></TextBlock>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Orientation="Vertical">
-                            <Button Content="удалить " x:Name="DeletBtn" Style="{StaticResource Mybutton}"></Button>
+                            <Button Content="удалить " x:Name="DeletBtn" Style="{StaticResource Mybutton}" Click="DeletBtn_Click"></Button>
                             <Button Content="Редактировать" x:Name="EditBtn"  Style="{StaticResource Mybutton}" Click="EditBtn_Click" ></Button>
                         </StackPanel>
                     </Grid>
-
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

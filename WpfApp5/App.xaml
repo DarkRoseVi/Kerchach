@@ -5,8 +5,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style x:Key="Mybutton" TargetType="Button" >
-            <Setter Property="Height" Value="20"></Setter>
-            <Setter Property="Width" Value="70" ></Setter>
+         
             <Setter Property="Background" Value="YellowGreen"></Setter>
         </Style>
         <Style x:Key="MyTextBox" TargetType="TextBox">

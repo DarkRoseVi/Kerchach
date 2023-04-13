@@ -34,8 +34,8 @@
 
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="68"></RowDefinition>
-                                <RowDefinition Height="61"></RowDefinition>
+                                <RowDefinition Height="92"></RowDefinition>
+                                <RowDefinition Height="37"></RowDefinition>
 
                             </Grid.RowDefinitions>
                             <StackPanel Grid.Row="0">
@@ -51,6 +51,7 @@
                                 <TextBlock Text="{Binding Сlient.FUO }"></TextBlock>
                                 <TextBlock>Ответсвенный</TextBlock>
                                 <TextBlock Text="{Binding Employees.FUO}"></TextBlock>
+                                <Button x:Name="SaveBtn" Content="Удалить" Click="SaveBtn_Click" Style="{StaticResource Mybutton}"></Button>
                             </StackPanel>
 
                             <ItemsControl Grid.Row="1" Grid.Column="1"

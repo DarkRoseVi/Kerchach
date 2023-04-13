@@ -48,5 +48,13 @@ namespace WpfApp5.MyPages
        
             Navidation.NextPage(new Nav("Добавление заказа", new AddOrderPage(new Order())));
         }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var em = (sender as Button).DataContext as Order;
+            if (MessageBox.Show("Вы точно хотите удалить эту запись", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                BdConect.db.Order.Remove(em);
+            BdConect.db.SaveChanges();
+        }
     }
 }

@@ -161,6 +161,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyPages\DishOrderAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyPages\DishPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,6 +178,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyPages\EsitClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyPages\EsitIngredientpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyPages\IngrediensPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -207,6 +219,9 @@
     <Compile Include="MyPages\ClientPage.xaml.cs">
       <DependentUpon>ClientPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyPages\DishOrderAdd.xaml.cs">
+      <DependentUpon>DishOrderAdd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyPages\DishPage.xaml.cs">
       <DependentUpon>DishPage.xaml</DependentUpon>
     </Compile>
@@ -218,6 +233,12 @@
     </Compile>
     <Compile Include="MyPages\EsitClientPage.xaml.cs">
       <DependentUpon>EsitClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyPages\EsitIngredientpage.xaml.cs">
+      <DependentUpon>EsitIngredientpage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyPages\IngrediensPage.xaml.cs">
+      <DependentUpon>IngrediensPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyPages\OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>

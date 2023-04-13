@@ -43,5 +43,31 @@ namespace WpfApp5.MyPages
             Navidation.NextPage(new Nav("Добавление клиента", new EsitClientPage(n)));
 
         }
+
+        public void Reshre() 
+        {
+            IEnumerable<Сlient> clList = BdConect.db.Сlient;
+            if (PoisTb == null)
+                return;
+            if (PoisTb.Text.Length > 0 )
+            {
+                clList = clList.Where(x => x.LastName.StartsWith(PoisTb.Text) );
+             }
+            ClientLW.ItemsSource = clList.ToList();
+        }
+        private void DeletBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var em = (sender as Button).DataContext as Сlient;
+            if (MessageBox.Show("Вы точно хотите удалить эту запись", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                BdConect.db.Сlient.Remove(em);
+            BdConect.db.SaveChanges();
+            ClientLW.ItemsSource = BdConect.db.Сlient.ToList();
+        }
+
+        private void PoisTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Reshre();
+
+        }
     }
 }
