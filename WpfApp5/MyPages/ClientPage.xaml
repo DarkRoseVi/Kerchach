@@ -20,9 +20,16 @@
                 <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="5"></TextBlock>
                 <TextBox x:Name="PoisTb" Style="{StaticResource MyTextBox}" Margin="5"></TextBox>
             </StackPanel>
-
+            <StackPanel  Orientation="Horizontal" >
+                <TextBlock  VerticalAlignment ="Center" Margin="5">Сортировка</TextBlock>
+                <ComboBox x:Name="SortCb" Margin="5" Style="{StaticResource MyTComboBox}" SelectionChanged="SortCb_SelectionChanged" >
+                    <ComboBoxItem Tag="1">от А до Я</ComboBoxItem>
+                    <ComboBoxItem Tag="2">от Я до А</ComboBoxItem>
+                    <ComboBoxItem Tag="3">все</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
         </StackPanel>
-        <ListView Grid.Row="1" x:Name="ClientLW" d:ItemsSource="{d:SampleData ItemCount=5}"  >
+        <ListView Margin="5"  Grid.Row="1" x:Name="ClientLW" d:ItemsSource="{d:SampleData ItemCount=5}"  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -31,11 +38,11 @@
                             <ColumnDefinition Width="100"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Orientation="Horizontal">
-                            <TextBlock>Имя</TextBlock>
-                            <TextBlock Text="{Binding FUO}" Margin="5"></TextBlock>
+                            <TextBlock Margin="5">Имя</TextBlock>
+                            <TextBlock Margin="5" Text="{Binding FUO}"></TextBlock>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Orientation="Vertical">
-                            <Button Content="удалить " x:Name="DeletBtn" Style="{StaticResource Mybutton}"></Button>
+                            <Button Content="Удалить " x:Name="DeletBtn" Style="{StaticResource Mybutton}"></Button>
                             <Button Content="Редактировать" x:Name="EditBtn"  Style="{StaticResource Mybutton}" Click="EditBtn_Click" ></Button>
                         </StackPanel>
                     </Grid>
@@ -43,6 +50,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Grid.Row="2" Height="20" Width="60" Content="добавить"  Click="Button_Click" Style="{StaticResource Mybutton}"></Button>
+        <Button Grid.Row="2" Height="20" Width="60" Content="Добавить"  Click="Button_Click" Style="{StaticResource Mybutton}"></Button>
     </Grid>
 </Page>

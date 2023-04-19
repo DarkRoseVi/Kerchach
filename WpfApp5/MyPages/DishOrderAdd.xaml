@@ -44,6 +44,7 @@
                 VerticalAlignment="Center"
                 Padding="5 3"
                 Click="Button_Click"
-                Style="{StaticResource Mybutton}"/>
+                Style="{StaticResource Mybutton}"
+                Height="25"/>
     </Grid>
 </Window>

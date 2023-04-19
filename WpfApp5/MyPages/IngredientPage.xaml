@@ -9,6 +9,54 @@
       Title="IngredientPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="332*"/>
+            <RowDefinition Height="53*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Сортировка по единице измерения" Margin="5" VerticalAlignment="Center"></TextBlock>
+                <ComboBox Style="{StaticResource MyTComboBox}" DisplayMemberPath="Title" 
+                          Margin="5" x:Name="UnitlCb" SelectionChanged="UnitlCb_SelectionChanged"></ComboBox>
+            </StackPanel>
+            <!--<StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="5"></TextBlock>
+                <TextBox x:Name="PoisTb" Style="{StaticResource MyTextBox}" Margin="5" TextChanged="PoisTb_TextChanged" ></TextBox>
+            </StackPanel>-->
+
+        </StackPanel>
+        <ListView Grid.Row="1" x:Name="IngredientLW" d:ItemsSource="{d:SampleData ItemCount=5}"  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="652">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="219"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Source="{Binding Photo }"></Image>
+                        <StackPanel Grid.Column="1" Orientation="Vertical">
+                            <TextBlock>Название</TextBlock>
+                            <TextBlock Text="{Binding Title}" Margin="5"></TextBlock>
+                            <StackPanel HorizontalAlignment="Left">
+                                <Button Content="Удалить " x:Name="DeletBtn" 
+                                    Style="{StaticResource Mybutton}" 
+                                    Width="100"
+                                   Click="DeletBtn_Click"></Button>
+                                <Button Content="Редактировать" x:Name="EditBtn" 
+                                    Style="{StaticResource Mybutton}" 
+                                   Click="EditBtn_Click"></Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Grid.Row="2" Height="20" Width="60" Content="добавить" 
+             Click="Button_Click" Style="{StaticResource Mybutton}"></Button>
     </Grid>
 </Page>

@@ -26,14 +26,15 @@
         </StackPanel>
 
         <Frame Grid.Row="1" x:Name="MyFrame"  Grid.Column="2" NavigationUIVisibility="Hidden"/>
-        <StackPanel Background="Yellow" Grid.Row="1" Grid.Column="0">
-            <Button Content="Блюда" x:Name="DishBtn" Click="DishBtn_Click"></Button>
-            <Button Content="Сотрудники" x:Name="EmployeeBtn" Click="EmployeeBtn_Click" Style="{StaticResource Mybutton}"></Button>
-            <Button Content="Клиенты" x:Name="ClientBtn" Click="ClientBtn_Click"></Button>
-            <Button Content="Поставки"  x:Name="LandingBtn"></Button>
-            <Button Content="Поставщики" x:Name="ProviderBtn" Click="ProviderBtn_Click" ></Button>
-            <Button Content="Ингредиенты" x:Name="IngredientBtn"></Button>
-            <Button Content="Заказы" x:Name="OrderBtn" Click="OrderBtn_Click"></Button>
+        <StackPanel Background="#FF5C0F24" Grid.Column="0" Height="321" Grid.RowSpan="2" VerticalAlignment="Bottom">
+            <Button Content="Блюда" Style="{StaticResource Mybutton}" x:Name="DishBtn" Click="DishBtn_Click"></Button>
+            <Button Content="Сотрудники" Style="{StaticResource Mybutton}" 
+                    x:Name="EmployeeBtn" Click="EmployeeBtn_Click"></Button>
+            <Button Content="Клиенты" Style="{StaticResource Mybutton}" x:Name="ClientBtn" Click="ClientBtn_Click"></Button>
+            <Button Content="Поставки"  Style="{StaticResource Mybutton}" x:Name="LandingBtn"></Button>
+            <Button Content="Поставщики"  Style="{StaticResource Mybutton}" x:Name="ProviderBtn" Click="ProviderBtn_Click" ></Button>
+            <Button Content="Ингредиенты" Style="{StaticResource Mybutton}" x:Name="IngredientBtn" Click="IngredientBtn_Click"></Button>
+            <Button Content="Заказы" Style="{StaticResource Mybutton}" x:Name="OrderBtn" Click="OrderBtn_Click"></Button>
         </StackPanel>
         <StackPanel Background="#FF5C0F24" Grid.Row="2" Grid.ColumnSpan="2" />
         <StackPanel Grid.Row="2" Background="#FF5C0F24" Grid.Column="0"/>

@@ -10,27 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp5.Componens;
-using WpfApp5.MyPages;
+using ClientWpf.Components;
+using ClientWpf.MyPages;
 
-namespace WpfApp5.MyPages
+namespace ClientWpf
 {
     /// <summary>
-    /// Логика взаимодействия для AddCookStage.xaml
+    /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class AddCookStage : Window
+    public partial class MainWindow : Window
     {
-        public CookingStage cookingStage { get; set; }
-        public AddCookStage(CookingStage _cookingStage)
+        public MainWindow()
         {
             InitializeComponent();
-            cookingStage = _cookingStage;
+            myFrame.NavigationService.Navigate(new AutoPage());
         }
 
-        private void SaveBtn_Click(object sender, RoutedEventArgs e)
-        {
-     
-        }
     }
 }

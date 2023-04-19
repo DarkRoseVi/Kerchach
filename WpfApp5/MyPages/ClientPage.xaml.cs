@@ -47,6 +47,25 @@ namespace WpfApp5.MyPages
         public void Reshre() 
         {
             IEnumerable<Сlient> clList = BdConect.db.Сlient;
+
+            if (SortCb.SelectedItem != null)
+            {
+                switch ((SortCb.SelectedItem as ComboBoxItem).Tag)
+                {
+                    case "1":
+                        clList = clList.OrderBy(x => x.Name);
+                        break;
+                    case "2":
+                        clList = clList.OrderByDescending(x => x.Name);
+                        break;
+                    case "3":
+                        clList = BdConect.db.Сlient;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
             if (PoisTb == null)
                 return;
             if (PoisTb.Text.Length > 0 )
@@ -68,6 +87,11 @@ namespace WpfApp5.MyPages
         {
             Reshre();
 
+        }
+
+        private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Reshre();
         }
     }
 }

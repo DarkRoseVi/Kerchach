@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{55E7D7B4-15E2-4B03-96D4-D840B67CAAE2}</ProjectGuid>
+    <ProjectGuid>{7D2558ED-93E4-4F6E-9DC6-DB078E3AC26B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WpfApp5</RootNamespace>
-    <AssemblyName>WpfApp5</AssemblyName>
+    <RootNamespace>ClientWpf</RootNamespace>
+    <AssemblyName>ClientWpf</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -72,191 +72,117 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Componens\BdConect.cs" />
-    <Compile Include="Componens\Category.cs">
+    <Compile Include="Components\BdConect.cs" />
+    <Compile Include="Components\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\CookingStage.cs">
+    <Compile Include="Components\CookingStage.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\CountryOrigin.cs">
+    <Compile Include="Components\CountryOrigin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\CountryOriginDish.cs">
+    <Compile Include="Components\CountryOriginDish.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\DegreeSharpness.cs">
+    <Compile Include="Components\DegreeSharpness.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Dish.cs">
+    <Compile Include="Components\Dish.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Dish.Extension.cs" />
-    <Compile Include="Componens\Employees.cs">
+    <Compile Include="Components\Employees.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Employees.Extension.cs" />
-    <Compile Include="Componens\Ingredient.cs">
+    <Compile Include="Components\Ingredient.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\IngredientOfCookingSage.cs">
+    <Compile Include="Components\IngredientOfCookingSage.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Landing.cs">
+    <Compile Include="Components\Landing.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Model1.Context.cs">
+    <Compile Include="Components\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Model1.cs">
+    <Compile Include="Components\Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Model1.Designer.cs">
+    <Compile Include="Components\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Navidation.cs" />
-    <Compile Include="Componens\Order.cs">
+    <Compile Include="Components\Navogation.cs" />
+    <Compile Include="Components\Order.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Order.Extension.cs" />
-    <Compile Include="Componens\OrderDish.cs">
+    <Compile Include="Components\OrderDish.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Otdel.cs">
+    <Compile Include="Components\Otdel.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Provider.cs">
+    <Compile Include="Components\Provider.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Role.cs">
+    <Compile Include="Components\Role.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\sysdiagrams.cs">
+    <Compile Include="Components\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Unit.cs">
+    <Compile Include="Components\Unit.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Сlient.cs">
+    <Compile Include="Components\Сlient.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Componens\Сlient.Extension.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MyPages\AddCookStage.xaml">
+    <Page Include="MyPages\OrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MyPages\AddIngredientProv.xaml">
+    <Page Include="MyPages\AutoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MyPages\AddOrderPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MyPages\ClientPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MyPages\DishOrderAdd.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="MyPages\DishPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MyPages\EditEmployeePage.xaml">
+    <Page Include="MyPages\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MyPages\EmployeePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MyPages\EsitClientPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MyPages\EsitIngredientpage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MyPages\IngredientPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MyPages\OrderPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MyPages\ProviderInfoPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MyPages\ProviderPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MyPages\RecipePage.xaml">
+    <Page Include="MyPages\RegPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyPages\AddCookStage.xaml.cs">
-      <DependentUpon>AddCookStage.xaml</DependentUpon>
+    <Compile Include="MyPages\OrderPage.xaml.cs">
+      <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MyPages\AddIngredientProv.xaml.cs">
-      <DependentUpon>AddIngredientProv.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyPages\AddOrderPage.xaml.cs">
-      <DependentUpon>AddOrderPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyPages\ClientPage.xaml.cs">
-      <DependentUpon>ClientPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyPages\DishOrderAdd.xaml.cs">
-      <DependentUpon>DishOrderAdd.xaml</DependentUpon>
+    <Compile Include="MyPages\AutoPage.xaml.cs">
+      <DependentUpon>AutoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyPages\DishPage.xaml.cs">
       <DependentUpon>DishPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MyPages\EditEmployeePage.xaml.cs">
-      <DependentUpon>EditEmployeePage.xaml</DependentUpon>
+    <Compile Include="MyPages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MyPages\EmployeePage.xaml.cs">
-      <DependentUpon>EmployeePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyPages\EsitClientPage.xaml.cs">
-      <DependentUpon>EsitClientPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyPages\EsitIngredientpage.xaml.cs">
-      <DependentUpon>EsitIngredientpage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyPages\IngredientPage.xaml.cs">
-      <DependentUpon>IngredientPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyPages\OrderPage.xaml.cs">
-      <DependentUpon>OrderPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyPages\ProviderInfoPage.xaml.cs">
-      <DependentUpon>ProviderInfoPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyPages\ProviderPage.xaml.cs">
-      <DependentUpon>ProviderPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyPages\RecipePage.xaml.cs">
-      <DependentUpon>RecipePage.xaml</DependentUpon>
+    <Compile Include="MyPages\RegPage.xaml.cs">
+      <DependentUpon>RegPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -275,11 +201,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Componens\Model1.edmx">
+    <EntityDeploy Include="Components\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Componens\Model1.edmx.diagram">
+    <None Include="Components\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -292,27 +218,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Componens\Provider.Extension.cs" />
-    <Resource Include="Images\20b200b3248f72d9de79609b1652eccd.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\afb14e78701751_Y3JvcCwyNDgwLDE5MzksMCw2ODE-transformed.png" />
-    <Resource Include="Images\afb14e78701751.Y3JvcCwyNDgwLDE5MzksMCw2ODE.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Componens\Model1.Context.tt">
+    <Content Include="Components\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Componens\Model1.tt">
+    <Content Include="Components\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\afb14e78701751.Y3JvcCwyNDgwLDE5MzksMCw2ODE.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

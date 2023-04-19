@@ -53,11 +53,11 @@ namespace WpfApp5.MyPages
             if (IgredientId == null)
             {
                 BdConect.db.Ingredient.Add(ingrediebts);
-                MessageBox.Show("yes");
-
+                
             }
             BdConect.db.SaveChanges();
-            Navidation.NextPage(new Nav("Продукты", new IngrediensPage()));
+            MessageBox.Show("yes");
+            Navidation.NextPage(new Nav("Продукты", new IngredientPage()));
         }
 
         private void QouantitiTb_PreviewTextInput(object sender, TextCompositionEventArgs e)

@@ -44,8 +44,7 @@
                     <Grid>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Title}" Margin="5"/>
-                            <TextBlock Text="{Binding OrderDish.Quantity}" Margin="5"/>
-
+                            <!--<TextBlock Text="{Binding  }" Margin="5"/>-->
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

@@ -10,27 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp5.Componens;
-using WpfApp5.MyPages;
+using ClientWpf.Components;
+using ClientWpf.MyPages;
 
-namespace WpfApp5.MyPages
+namespace ClientWpf.MyPages
 {
     /// <summary>
-    /// Логика взаимодействия для AddCookStage.xaml
+    /// Логика взаимодействия для DishPage.xaml
     /// </summary>
-    public partial class AddCookStage : Window
+    public partial class DishPage : Page
     {
-        public CookingStage cookingStage { get; set; }
-        public AddCookStage(CookingStage _cookingStage)
+        kersachViEntities _context = new kersachViEntities();
+        public DishPage()
         {
             InitializeComponent();
-            cookingStage = _cookingStage;
+            Refrese();
         }
-
-        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        private void Refrese()
         {
-     
+            List<Dish> listdis = _context.Dish.ToList();
+            LViewDishes.ItemsSource = listdis;
         }
     }
 }
