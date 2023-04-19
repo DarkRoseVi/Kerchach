@@ -44,15 +44,16 @@ namespace WpfApp5.MyPages
                 return;
 
             BdConect.db.OrderDish.Add(
-                new OrderDish()
-                {
-                    Dish = IngridientList.SelectedItem as Dish,
-                    Quantity = int.Parse(QuantityTextBox.Text.Trim()),
-                    Order = _order
-                }
+                    new OrderDish()
+                    {
+                        Dish = IngridientList.SelectedItem as Dish,
+                        Quantity = int.Parse(QuantityTextBox.Text.Trim()),
+                        Order = _order
+                    }
                 );
+
             BdConect.db.SaveChanges();
-            AddOrderPage.UpdateIngridientList(_order);
+            AddOrderPage.UpdateIngridientListWithOrder(_order);
             Close();
 
           //  AddOrderPage.Instance.diseslidt.Add(IngridientList.SelectedItem as Dish);

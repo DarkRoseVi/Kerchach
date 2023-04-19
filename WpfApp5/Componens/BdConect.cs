@@ -8,6 +8,6 @@ namespace WpfApp5.Componens
 {
  internal   class BdConect
     {
-        public static CookEntities db = new CookEntities();
+        public static KersEntities db = new KersEntities();
     }
 }

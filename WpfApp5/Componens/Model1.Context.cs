@@ -13,10 +13,10 @@ namespace WpfApp5.Componens
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CookEntities : DbContext
+    public partial class KersEntities : DbContext
     {
-        public CookEntities()
-            : base("name=CookEntities")
+        public KersEntities()
+            : base("name=KersEntities")
         {
         }
     

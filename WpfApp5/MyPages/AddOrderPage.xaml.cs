@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfApp5.Componens;
-using WpfApp5.MyPages;
 
 namespace WpfApp5.MyPages
 {
@@ -31,7 +20,6 @@ namespace WpfApp5.MyPages
             set { SetValue(diseslidtProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for diseslidt.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty diseslidtProperty =
             DependencyProperty.Register("diseslidt", typeof(IEnumerable<Dish>), typeof(AddOrderPage));
 
@@ -43,31 +31,28 @@ namespace WpfApp5.MyPages
             diseslidt = BdConect.db.Dish.ToList();
             InitializeComponent();
             Instance = this;
-           
+
             ClientCb.ItemsSource = BdConect.db.Сlient.ToList();
             ClientCb.DisplayMemberPath = "LastName";
             EmployeeCb.ItemsSource = BdConect.db.Employees.ToList();
             EmployeeCb.DisplayMemberPath = "LastName";
-            UpdateIngridientList(orders);
+            UpdateIngridientListWithOrder(orders);
         }
-        public static void UpdateIngridientList(Order orders)
+        public static void UpdateIngridientListWithOrder(Order orders)
         {
             Instance.diseslidt = BdConect.db.OrderDish.Where(x => x.OrserId == orders.Id).Select(s => s.Dish).ToList();
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            BdConect.db.Order.Add(new Order
-            {
-               // ClientId = ClientCb
-              // EmployeesId
-             
-            }
-            ) ;
-            
+            orders.Сlient = ClientCb.SelectedItem as Сlient;
+            orders.Employees = EmployeeCb.SelectedItem as Employees;
+            orders.Sum = 0;
+            orders.OrderDish = BdConect.db.OrderDish.Local.Where(x => x.OrserId == orders.Id).ToArray();
+            BdConect.db.SaveChanges();
         }
 
-        private void AddBtn_Click(object sender, RoutedEventArgs e)=>
-         //   new AddIngredientProv(diseslidt, _orders).ShowDialog();
+        private void AddBtn_Click(object sender, RoutedEventArgs e) =>
+         new DishOrderAdd(diseslidt, orders).ShowDialog();
     }
 }

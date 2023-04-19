@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:WpfApp5.MyPages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddOrderPage">
+      Title="AddOrderPage"
+      DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -34,14 +35,18 @@
         </StackPanel>
         <ListView Grid.Row="0"
                   Grid.Column="1"
-                  ItemsSource="{Binding landings}"
+                  ItemsSource="{Binding diseslidt}"
                   x:Name="ProductLw"
                   d:ItemsSource="{d:SampleData ItemCount=5}"
                 Margin="5">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <TextBlock Text="{Binding Dish.Title}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Title}" Margin="5"/>
+                            <TextBlock Text="{Binding OrderDish.Quantity}" Margin="5"/>
+
+                        </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -167,6 +167,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyPages\DishOrderAdd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MyPages\DishPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyPages\EsitClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyPages\IngredientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,6 +221,9 @@
     <Compile Include="MyPages\ClientPage.xaml.cs">
       <DependentUpon>ClientPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyPages\DishOrderAdd.xaml.cs">
+      <DependentUpon>DishOrderAdd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyPages\DishPage.xaml.cs">
       <DependentUpon>DishPage.xaml</DependentUpon>
     </Compile>
@@ -224,6 +235,9 @@
     </Compile>
     <Compile Include="MyPages\EsitClientPage.xaml.cs">
       <DependentUpon>EsitClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyPages\IngredientPage.xaml.cs">
+      <DependentUpon>IngredientPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyPages\OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
@@ -278,6 +292,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\afb14e78701751_Y3JvcCwyNDgwLDE5MzksMCw2ODE-transformed.png" />
+    <Resource Include="Images\afb14e78701751.Y3JvcCwyNDgwLDE5MzksMCw2ODE.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Componens\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -288,8 +306,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Images\afb14e78701751_Y3JvcCwyNDgwLDE5MzksMCw2ODE-transformed.png" />
-    <Resource Include="Images\afb14e78701751.Y3JvcCwyNDgwLDE5MzksMCw2ODE.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

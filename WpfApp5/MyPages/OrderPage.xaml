@@ -59,6 +59,7 @@
                                             <StackPanel>
                                                 <TextBlock Text="{Binding Dish.Title}" Margin="2"/>
                                                 <TextBlock Text="{Binding Dish.Cost}" Margin="2"/>
+                                                <TextBlock Text="{Binding Quantity}" Margin="2"/>
                                             </StackPanel>
                                         </Border>
                                     </DataTemplate>

@@ -22,7 +22,7 @@ namespace WpfApp5.MyPages
     /// </summary>
     public partial class DishPage : Page
     {
-        CookEntities _context = new CookEntities();
+        KersEntities _context = new KersEntities();
         public DishPage()
         {
             InitializeComponent();
