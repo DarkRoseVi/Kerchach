@@ -125,6 +125,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Componens\Order.Extension.cs" />
+    <Compile Include="Componens\OrderDish.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Componens\Otdel.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -132,6 +135,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Componens\Role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Componens\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Componens\Unit.cs">
@@ -282,6 +288,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\afb14e78701751_Y3JvcCwyNDgwLDE5MzksMCw2ODE-transformed.png" />
+    <Resource Include="Images\afb14e78701751.Y3JvcCwyNDgwLDE5MzksMCw2ODE.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

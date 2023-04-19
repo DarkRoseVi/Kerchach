@@ -10,27 +10,20 @@
       Title="OrderPage">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="65*"/>
-            <RowDefinition Height="69*"/>
+
             <RowDefinition Height="263*"/>
             <RowDefinition Height="53*"/>
         </Grid.RowDefinitions>
-        <!--<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Сортировка по роли" Margin="5" VerticalAlignment="Center"></TextBlock>
-                <ComboBox Style="{StaticResource MyTComboBox}" DisplayMemberPath="Title" SelectionChanged="OtdelCb_SelectionChanged" Margin="5" x:Name="OtdelCb"></ComboBox>
-            </StackPanel>
-
-        </StackPanel>-->
-
-        <ListView ItemsSource="{Binding orders}" Grid.Row="1" x:Name="OrdertListViu" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="2">
+        <ListView ItemsSource="{Binding orders}" Grid.Row="0" 
+                  Width="750"
+                  x:Name="OrdertListViu" d:ItemsSource="{d:SampleData ItemCount=5}" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"></ColumnDefinition>
-                                <ColumnDefinition Width="600"></ColumnDefinition>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="600"/>
 
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -39,8 +32,8 @@
 
                             </Grid.RowDefinitions>
                             <StackPanel Grid.Row="0">
-                                <TextBlock> Номер заказа</TextBlock>
-                                <TextBlock Text="{Binding Id}"></TextBlock>
+                                <TextBlock Margin="5"> Номер заказа</TextBlock>
+                                <TextBlock  Margin="5" Text="{Binding Id}"></TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Row="1">
                                 <TextBlock>Сумма</TextBlock>
@@ -54,7 +47,7 @@
                             </StackPanel>
 
                             <ItemsControl Grid.Row="1" Grid.Column="1"
-                                          ItemsSource="{Binding Dish}">
+                                          ItemsSource="{Binding OrderDish}">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <WrapPanel IsItemsHost="True"/>
@@ -62,25 +55,22 @@
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <Border  Margin="5 0 5 0" BorderThickness="1" >
+                                        <Border  Margin="5 0 15 0" BorderThickness="1" >
                                             <StackPanel>
-                                                <TextBlock Text="{Binding Title}"/>
-
-                                                <TextBlock Text="{Binding Cost}"/>
+                                                <TextBlock Text="{Binding Dish.Title}" Margin="2"/>
+                                                <TextBlock Text="{Binding Dish.Cost}" Margin="2"/>
                                             </StackPanel>
                                         </Border>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
-
-
                         </Grid>
-
                     </Border>
-
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Grid.Row="3" Height="20" Width="60" Content="добавить"  Style="{StaticResource Mybutton}" Click="Button_Click" Margin="370,17,370,16"></Button>
+        <StackPanel Grid.Row="1" Margin="0 15 0 0 ">
+            <Button  Height="20" Width="60" Content="добавить"  Style="{StaticResource Mybutton}" Click="Button_Click" ></Button>
+        </StackPanel>
     </Grid>
 </Page>

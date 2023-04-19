@@ -30,6 +30,8 @@ namespace WpfApp5.MyPages
             get { return (IEnumerable<Dish>)GetValue(diseslidtProperty); }
             set { SetValue(diseslidtProperty, value); }
         }
+
+        // Using a DependencyProperty as the backing store for diseslidt.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty diseslidtProperty =
             DependencyProperty.Register("diseslidt", typeof(IEnumerable<Dish>), typeof(AddOrderPage));
 
@@ -46,6 +48,11 @@ namespace WpfApp5.MyPages
             ClientCb.DisplayMemberPath = "LastName";
             EmployeeCb.ItemsSource = BdConect.db.Employees.ToList();
             EmployeeCb.DisplayMemberPath = "LastName";
+            UpdateIngridientList(orders);
+        }
+        public static void UpdateIngridientList(Order orders)
+        {
+            Instance.diseslidt = BdConect.db.OrderDish.Where(x => x.OrserId == orders.Id).Select(s => s.Dish).ToList();
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)

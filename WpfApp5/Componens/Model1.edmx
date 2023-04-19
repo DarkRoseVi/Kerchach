@@ -105,9 +105,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmployeesId" Type="int" />
           <Property Name="ClientId" Type="int" />
-          <Property Name="DishId" Type="int" />
-          <Property Name="Quantity" Type="int" />
-          <Property Name="Cost" Type="int" />
           <Property Name="Sum" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="OrderDish">
@@ -117,6 +114,8 @@
           </Key>
           <Property Name="OrserId" Type="int" Nullable="false" />
           <Property Name="DishId" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Quantity" Type="int" />
         </EntityType>
         <EntityType Name="Otdel">
           <Key>
@@ -142,6 +141,16 @@
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Oklad" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Unit">
           <Key>
             <PropertyRef Name="Id" />
@@ -157,6 +166,8 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_CookingStage_Dish">
           <End Role="Dish" Type="Self.Dish" Multiplicity="0..1" />
@@ -378,6 +389,7 @@
           <EntitySet Name="Otdel" EntityType="Self.Otdel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Provider" EntityType="Self.Provider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Сlient" EntityType="Self.Сlient" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CookingStage_Dish" Association="Self.FK_CookingStage_Dish">
@@ -463,10 +475,13 @@
           <EntitySet Name="Employees" EntityType="kersachViModel.Employees" />
           <EntitySet Name="Ingredient" EntityType="kersachViModel.Ingredient" />
           <EntitySet Name="IngredientOfCookingSage" EntityType="kersachViModel.IngredientOfCookingSage" />
+          <EntitySet Name="Landing" EntityType="kersachViModel.Landing" />
           <EntitySet Name="Order" EntityType="kersachViModel.Order" />
+          <EntitySet Name="OrderDish" EntityType="kersachViModel.OrderDish" />
           <EntitySet Name="Otdel" EntityType="kersachViModel.Otdel" />
           <EntitySet Name="Provider" EntityType="kersachViModel.Provider" />
           <EntitySet Name="Role" EntityType="kersachViModel.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="kersachViModel.sysdiagrams" />
           <EntitySet Name="Unit" EntityType="kersachViModel.Unit" />
           <EntitySet Name="Сlient" EntityType="kersachViModel.Сlient" />
           <AssociationSet Name="FK_Dish_Category" Association="kersachViModel.FK_Dish_Category">
@@ -497,6 +512,10 @@
             <End Role="Otdel" EntitySet="Otdel" />
             <End Role="Dish" EntitySet="Dish" />
           </AssociationSet>
+          <AssociationSet Name="FK_OrderDish_Dish" Association="kersachViModel.FK_OrderDish_Dish">
+            <End Role="Dish" EntitySet="Dish" />
+            <End Role="OrderDish" EntitySet="OrderDish" />
+          </AssociationSet>
           <AssociationSet Name="FK_Employees_Otdel" Association="kersachViModel.FK_Employees_Otdel">
             <End Role="Otdel" EntitySet="Otdel" />
             <End Role="Employees" EntitySet="Employees" />
@@ -517,15 +536,6 @@
             <End Role="Ingredient" EntitySet="Ingredient" />
             <End Role="IngredientOfCookingSage" EntitySet="IngredientOfCookingSage" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Сlient" Association="kersachViModel.FK_Order_Сlient">
-            <End Role="Сlient" EntitySet="Сlient" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="OrderDish" Association="kersachViModel.OrderDish">
-            <End Role="Dish" EntitySet="Dish" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <EntitySet Name="Landing" EntityType="kersachViModel.Landing" />
           <AssociationSet Name="FK_Landing_Ingredient" Association="kersachViModel.FK_Landing_Ingredient">
             <End Role="Ingredient" EntitySet="Ingredient" />
             <End Role="Landing" EntitySet="Landing" />
@@ -533,6 +543,14 @@
           <AssociationSet Name="FK_Landing_Provider" Association="kersachViModel.FK_Landing_Provider">
             <End Role="Provider" EntitySet="Provider" />
             <End Role="Landing" EntitySet="Landing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Сlient" Association="kersachViModel.FK_Order_Сlient">
+            <End Role="Сlient" EntitySet="Сlient" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDish_Order" Association="kersachViModel.FK_OrderDish_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderDish" EntitySet="OrderDish" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Category">
@@ -597,7 +615,7 @@
           <NavigationProperty Name="CountryOriginDish" Relationship="kersachViModel.FK_CountryOriginDish_Dish" FromRole="Dish" ToRole="CountryOriginDish" />
           <NavigationProperty Name="DegreeSharpness" Relationship="kersachViModel.FK_Dish_DegreeSharpness" FromRole="Dish" ToRole="DegreeSharpness" />
           <NavigationProperty Name="Otdel" Relationship="kersachViModel.FK_Dish_Otdel" FromRole="Dish" ToRole="Otdel" />
-          <NavigationProperty Name="Order" Relationship="kersachViModel.OrderDish" FromRole="Dish" ToRole="Order" />
+          <NavigationProperty Name="OrderDish" Relationship="kersachViModel.FK_OrderDish_Dish" FromRole="Dish" ToRole="OrderDish" />
         </EntityType>
         <EntityType Name="Employees">
           <Key>
@@ -639,6 +657,18 @@
           <NavigationProperty Name="CookingStage" Relationship="kersachViModel.FK_IngredientOfCookingSage_CookingStage" FromRole="IngredientOfCookingSage" ToRole="CookingStage" />
           <NavigationProperty Name="Ingredient" Relationship="kersachViModel.FK_IngredientOfCookingSage_Ingredient" FromRole="IngredientOfCookingSage" ToRole="Ingredient" />
         </EntityType>
+        <EntityType Name="Landing">
+          <Key>
+            <PropertyRef Name="IngredientId" />
+            <PropertyRef Name="ProviderId" />
+          </Key>
+          <Property Name="IngredientId" Type="Int32" Nullable="false" />
+          <Property Name="ProviderId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Quantity" Type="Int32" />
+          <NavigationProperty Name="Ingredient" Relationship="kersachViModel.FK_Landing_Ingredient" FromRole="Landing" ToRole="Ingredient" />
+          <NavigationProperty Name="Provider" Relationship="kersachViModel.FK_Landing_Provider" FromRole="Landing" ToRole="Provider" />
+        </EntityType>
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="Id" />
@@ -646,13 +676,22 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmployeesId" Type="Int32" />
           <Property Name="ClientId" Type="Int32" />
-          <Property Name="DishId" Type="Int32" />
-          <Property Name="Quantity" Type="Int32" />
-          <Property Name="Cost" Type="Int32" />
           <Property Name="Sum" Type="Decimal" Precision="10" Scale="2" />
           <NavigationProperty Name="Employees" Relationship="kersachViModel.FK_Order_Employees" FromRole="Order" ToRole="Employees" />
           <NavigationProperty Name="Сlient" Relationship="kersachViModel.FK_Order_Сlient" FromRole="Order" ToRole="Сlient" />
-          <NavigationProperty Name="Dish" Relationship="kersachViModel.OrderDish" FromRole="Order" ToRole="Dish" />
+          <NavigationProperty Name="OrderDish" Relationship="kersachViModel.FK_OrderDish_Order" FromRole="Order" ToRole="OrderDish" />
+        </EntityType>
+        <EntityType Name="OrderDish">
+          <Key>
+            <PropertyRef Name="OrserId" />
+            <PropertyRef Name="DishId" />
+          </Key>
+          <Property Name="OrserId" Type="Int32" Nullable="false" />
+          <Property Name="DishId" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Quantity" Type="Int32" />
+          <NavigationProperty Name="Dish" Relationship="kersachViModel.FK_OrderDish_Dish" FromRole="OrderDish" ToRole="Dish" />
+          <NavigationProperty Name="Order" Relationship="kersachViModel.FK_OrderDish_Order" FromRole="OrderDish" ToRole="Order" />
         </EntityType>
         <EntityType Name="Otdel">
           <Key>
@@ -682,6 +721,16 @@
           <Property Name="Oklad" Type="Decimal" Precision="10" Scale="2" />
           <NavigationProperty Name="Employees" Relationship="kersachViModel.FK_Employees_Role" FromRole="Role" ToRole="Employees" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Unit">
           <Key>
             <PropertyRef Name="Id" />
@@ -698,6 +747,8 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Order" Relationship="kersachViModel.FK_Order_Сlient" FromRole="Сlient" ToRole="Order" />
         </EntityType>
         <Association Name="FK_Dish_Category">
@@ -784,6 +835,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_OrderDish_Dish">
+          <End Type="kersachViModel.Dish" Role="Dish" Multiplicity="1" />
+          <End Type="kersachViModel.OrderDish" Role="OrderDish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dish">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderDish">
+              <PropertyRef Name="DishId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Employees_Otdel">
           <End Type="kersachViModel.Otdel" Role="Otdel" Multiplicity="0..1" />
           <End Type="kersachViModel.Employees" Role="Employees" Multiplicity="*" />
@@ -844,34 +907,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_Сlient">
-          <End Type="kersachViModel.Сlient" Role="Сlient" Multiplicity="0..1" />
-          <End Type="kersachViModel.Order" Role="Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Сlient">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="ClientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="OrderDish">
-          <End Type="kersachViModel.Dish" Role="Dish" Multiplicity="*" />
-          <End Type="kersachViModel.Order" Role="Order" Multiplicity="*" />
-        </Association>
-        <EntityType Name="Landing">
-          <Key>
-            <PropertyRef Name="IngredientId" />
-            <PropertyRef Name="ProviderId" />
-          </Key>
-          <Property Name="IngredientId" Type="Int32" Nullable="false" />
-          <Property Name="ProviderId" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Precision="0" />
-          <Property Name="Quantity" Type="Int32" />
-          <NavigationProperty Name="Ingredient" Relationship="kersachViModel.FK_Landing_Ingredient" FromRole="Landing" ToRole="Ingredient" />
-          <NavigationProperty Name="Provider" Relationship="kersachViModel.FK_Landing_Provider" FromRole="Landing" ToRole="Provider" />
-        </EntityType>
         <Association Name="FK_Landing_Ingredient">
           <End Type="kersachViModel.Ingredient" Role="Ingredient" Multiplicity="1" />
           <End Type="kersachViModel.Landing" Role="Landing" Multiplicity="*" />
@@ -893,6 +928,30 @@
             </Principal>
             <Dependent Role="Landing">
               <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Сlient">
+          <End Type="kersachViModel.Сlient" Role="Сlient" Multiplicity="0..1" />
+          <End Type="kersachViModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сlient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDish_Order">
+          <End Type="kersachViModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="kersachViModel.OrderDish" Role="OrderDish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderDish">
+              <PropertyRef Name="OrserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -993,16 +1052,33 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Landing">
+            <EntityTypeMapping TypeName="kersachViModel.Landing">
+              <MappingFragment StoreEntitySet="Landing">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+                <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="kersachViModel.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="Sum" ColumnName="Sum" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="DishId" ColumnName="DishId" />
                 <ScalarProperty Name="ClientId" ColumnName="ClientId" />
                 <ScalarProperty Name="EmployeesId" ColumnName="EmployeesId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDish">
+            <EntityTypeMapping TypeName="kersachViModel.OrderDish">
+              <MappingFragment StoreEntitySet="OrderDish">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="DishId" ColumnName="DishId" />
+                <ScalarProperty Name="OrserId" ColumnName="OrserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1033,6 +1109,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="kersachViModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Unit">
             <EntityTypeMapping TypeName="kersachViModel.Unit">
               <MappingFragment StoreEntitySet="Unit">
@@ -1044,28 +1131,12 @@
           <EntitySetMapping Name="Сlient">
             <EntityTypeMapping TypeName="kersachViModel.Сlient">
               <MappingFragment StoreEntitySet="Сlient">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="OrderDish" TypeName="kersachViModel.OrderDish" StoreEntitySet="OrderDish">
-            <EndProperty Name="Order">
-              <ScalarProperty Name="Id" ColumnName="OrserId" />
-            </EndProperty>
-            <EndProperty Name="Dish">
-              <ScalarProperty Name="Id" ColumnName="DishId" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <EntitySetMapping Name="Landing">
-            <EntityTypeMapping TypeName="kersachViModel.Landing">
-              <MappingFragment StoreEntitySet="Landing">
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
-                <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

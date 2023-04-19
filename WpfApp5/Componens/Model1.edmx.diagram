@@ -4,6 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+<<<<<<< Updated upstream
       <Diagram DiagramId="4e51ff7cdbc3486591a1718b2e079e8e" Name="Diagram1">
         <EntityTypeShape EntityType="kersachViModel.Category" Width="1.5" PointX="3.75" PointY="10.125" />
         <EntityTypeShape EntityType="kersachViModel.CookingStage" Width="1.5" PointX="8.25" PointY="13" />
@@ -20,6 +21,27 @@
         <EntityTypeShape EntityType="kersachViModel.Role" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="kersachViModel.Unit" Width="1.5" PointX="6" PointY="17.375" />
         <EntityTypeShape EntityType="kersachViModel.Сlient" Width="1.5" PointX="6" PointY="2.375" />
+=======
+      <Diagram DiagramId="4e51ff7cdbc3486591a1718b2e079e8e" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="kersachViModel.Category" Width="1.5" PointX="0.75" PointY="10.625" />
+        <EntityTypeShape EntityType="kersachViModel.CookingStage" Width="1.5" PointX="5.25" PointY="12.75" />
+        <EntityTypeShape EntityType="kersachViModel.CountryOrigin" Width="1.5" PointX="6" PointY="3.375" />
+        <EntityTypeShape EntityType="kersachViModel.CountryOriginDish" Width="1.5" PointX="8.25" PointY="4.25" />
+        <EntityTypeShape EntityType="kersachViModel.DegreeSharpness" Width="1.5" PointX="0.75" PointY="4.25" />
+        <EntityTypeShape EntityType="kersachViModel.Dish" Width="1.5" PointX="3" PointY="6.375" />
+        <EntityTypeShape EntityType="kersachViModel.Employees" Width="1.5" PointX="6" PointY="6.625" />
+        <EntityTypeShape EntityType="kersachViModel.Ingredient" Width="1.5" PointX="5.25" PointY="16.625" />
+        <EntityTypeShape EntityType="kersachViModel.IngredientOfCookingSage" Width="1.5" PointX="7.5" PointY="12.875" />
+        <EntityTypeShape EntityType="kersachViModel.Landing" Width="1.5" PointX="7.5" PointY="16.75" />
+        <EntityTypeShape EntityType="kersachViModel.Order" Width="1.5" PointX="11.25" PointY="7" />
+        <EntityTypeShape EntityType="kersachViModel.OrderDish" Width="1.5" PointX="8.25" PointY="7.125" />
+        <EntityTypeShape EntityType="kersachViModel.Otdel" Width="1.5" PointX="0.75" PointY="7.25" />
+        <EntityTypeShape EntityType="kersachViModel.Provider" Width="1.5" PointX="5.25" PointY="20.875" />
+        <EntityTypeShape EntityType="kersachViModel.Role" Width="1.5" PointX="3.75" PointY="3.25" />
+        <EntityTypeShape EntityType="kersachViModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="10.625" />
+        <EntityTypeShape EntityType="kersachViModel.Unit" Width="1.5" PointX="3" PointY="17" />
+        <EntityTypeShape EntityType="kersachViModel.Сlient" Width="1.5" PointX="9" PointY="0.75" />
+>>>>>>> Stashed changes
         <AssociationConnector Association="kersachViModel.FK_Dish_Category" />
         <AssociationConnector Association="kersachViModel.FK_CookingStage_Dish" />
         <AssociationConnector Association="kersachViModel.FK_IngredientOfCookingSage_CookingStage" />
@@ -27,16 +49,16 @@
         <AssociationConnector Association="kersachViModel.FK_CountryOriginDish_Dish" />
         <AssociationConnector Association="kersachViModel.FK_Dish_DegreeSharpness" />
         <AssociationConnector Association="kersachViModel.FK_Dish_Otdel" />
+        <AssociationConnector Association="kersachViModel.FK_OrderDish_Dish" />
         <AssociationConnector Association="kersachViModel.FK_Employees_Otdel" />
         <AssociationConnector Association="kersachViModel.FK_Employees_Role" />
         <AssociationConnector Association="kersachViModel.FK_Order_Employees" />
         <AssociationConnector Association="kersachViModel.FK_Ingredient_Unit" />
         <AssociationConnector Association="kersachViModel.FK_IngredientOfCookingSage_Ingredient" />
-        <AssociationConnector Association="kersachViModel.FK_Order_Сlient" />
-        <AssociationConnector Association="kersachViModel.OrderDish" />
-        <EntityTypeShape EntityType="kersachViModel.Landing" Width="1.5" PointX="10.5" PointY="18.875" />
         <AssociationConnector Association="kersachViModel.FK_Landing_Ingredient" />
         <AssociationConnector Association="kersachViModel.FK_Landing_Provider" />
+        <AssociationConnector Association="kersachViModel.FK_Order_Сlient" />
+        <AssociationConnector Association="kersachViModel.FK_OrderDish_Order" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

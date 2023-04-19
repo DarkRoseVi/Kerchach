@@ -84,5 +84,21 @@ namespace WpfApp5.MyPages
 
         private void AddBtn_Click(object sender, RoutedEventArgs e) =>
             new AddIngredientProv(landings, Proviser).ShowDialog();
+
+        private void NameTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsLetter(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void PhoneTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

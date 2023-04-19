@@ -49,10 +49,28 @@ namespace WpfApp5.MyPages
 
         private void NameTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsLetterOrDigit(e.Text, 0))
+            if (!Char.IsLetter(e.Text, 0))
             {
                 e.Handled = true;
             }
         }
+
+        private void LastNameTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsLetter(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void PatronumekTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsLetter(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
+
+     
     }
 }

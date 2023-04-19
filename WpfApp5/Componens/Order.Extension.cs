@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace WpfApp5.Componens
 {
-    partial class Order
+  public  partial class Order
     {
+        public int? Quanity
+        {
+            get
+            {
+                return this.OrderDish.Sum(x => x.Quantity);
+            }
+        }
         public decimal? TotalSum
         {
             get
             {
-                return Sum = Cost * Quantity;
+          return  this.OrderDish.Sum(x=> x.Dish.Cost * x.Quantity);
             }
         }
     } 

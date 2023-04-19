@@ -12,22 +12,31 @@
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"> 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Имя"></TextBlock>
+                <TextBlock Text="Имя" Margin="5"></TextBlock>
                 <TextBox x:Name="NameTb" Style="{StaticResource MyTextBox}"  Text="{Binding emloyees.Name}" Margin="5" PreviewTextInput="NameTb_PreviewTextInput"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия"></TextBlock>
-                <TextBox x:Name="LastNameTb" Style="{StaticResource MyTextBox}" Text="{Binding emloyees.LastName}" Margin="5"></TextBox>
+                <TextBlock Text="Фамилия" Margin="5"></TextBlock>
+                <TextBox x:Name="LastNameTb" Style="{StaticResource MyTextBox}" Text="{Binding emloyees.LastName}" Margin="5" PreviewTextInput="LastNameTb_PreviewTextInput"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Отвество"></TextBlock>
-                <TextBox x:Name="PatronumekTb" Style="{StaticResource MyTextBox}"  Text="{Binding emloyees.Patronymic}" Margin="5"></TextBox>
+                <TextBlock Text="Отвество" Margin="5" ></TextBlock>
+                <TextBox x:Name="PatronumekTb" Style="{StaticResource MyTextBox}"  Text="{Binding emloyees.Patronymic}" Margin="5" PreviewTextInput="PatronumekTb_PreviewTextInput"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Роль"></TextBlock>
-                <ComboBox Name="CmbRole" Style="{StaticResource MyTComboBox}" SelectedItem="{Binding emloyees.Role}"></ComboBox>
+                <TextBlock Text="Роль" Margin="5"></TextBlock>
+                <ComboBox Name="CmbRole" Style="{StaticResource MyTComboBox}" SelectedItem="{Binding emloyees.Role}" Margin="5" ></ComboBox>
             </StackPanel>
-            <Button Content="Сохранить" x:Name="SaveBtn" Click="SaveBtn_Click" Style="{StaticResource Mybutton}"></Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Логин" Margin="5" ></TextBlock>
+                <TextBox x:Name="LoginTb" Style="{StaticResource MyTextBox}"  Text="{Binding emloyees.Login}" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Пароль" Margin="5" ></TextBlock>
+                <TextBox x:Name="PasswordTb" Style="{StaticResource MyTextBox}"  Text="{Binding emloyees.Password}" Margin="5"></TextBox>
+            </StackPanel>
+            <Button Content="Сохранить" x:Name="SaveBtn" Click="SaveBtn_Click" Style="{StaticResource Mybutton}" 
+                    Height="20" Width="80" Margin="5"></Button>
         </StackPanel>
     </Grid>
 </Page>

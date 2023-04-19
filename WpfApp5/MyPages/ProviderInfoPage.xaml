@@ -22,7 +22,7 @@
         <StackPanel Orientation="Vertical" Grid.Column="0"   Grid.Row="0" VerticalAlignment ="Center">
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
                 <TextBlock Text="Наименование поставщика"></TextBlock>
-                <TextBox Text="{Binding Proviser.Title}" Style="{StaticResource MyTextBox}" x:Name="NameTb"></TextBox>
+                <TextBox Text="{Binding Proviser.Title}" Style="{StaticResource MyTextBox}" x:Name="NameTb" PreviewTextInput="NameTb_PreviewTextInput"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
                 <TextBlock Text="Адрес"></TextBlock>
@@ -30,11 +30,14 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
                 <TextBlock Text="Телефон "></TextBlock>
-                <TextBox Text="{Binding  Proviser.Phone}" Style="{StaticResource MyTextBox}" x:Name="PhoneTb"></TextBox>
+                <TextBox Text="{Binding  Proviser.Phone}" Style="{StaticResource MyTextBox}" x:Name="PhoneTb" PreviewTextInput="PhoneTb_PreviewTextInput"></TextBox>
             </StackPanel>
-            <Button Content="Сохранить" x:Name="SaveBtn" Style="{StaticResource Mybutton}" Margin="5" Click="SaveBtn_Click"></Button>
+            <Button Content="Сохранить" 
+                    Height="20" Width="80" 
+                    x:Name="SaveBtn" Style="{StaticResource Mybutton}" Margin="5" Click="SaveBtn_Click"></Button>
         </StackPanel>
         <ListView Grid.Row="0"
+                  Margin="5"
                   Grid.Column="1"
                   ItemsSource="{Binding landings}"
                   x:Name="ProductLw"
@@ -42,12 +45,17 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <TextBlock Text="{Binding Ingredient.Title}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="5" Text="{Binding Ingredient.Title}"/>
+                            <TextBlock Margin="5" Text="{Binding Quantity}"/>
+                        </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Style="{StaticResource Mybutton}" Grid.Column="1" Grid.Row="1" Content="Доабвить" x:Name="AddBtn" Click="AddBtn_Click"></Button>
+        <Button 
+            Height="20" Width="80" Margin="5"
+            Style="{StaticResource Mybutton}" Grid.Column="1" Grid.Row="1" Content="Доабвить" x:Name="AddBtn" Click="AddBtn_Click"></Button>
 
     </Grid>
 </Page>

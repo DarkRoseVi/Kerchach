@@ -21,9 +21,13 @@
             <ColumnDefinition Width="399*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="0">
-            <TextBlock Text="Название  блюда"></TextBlock>
-            <TextBox x:Name="TitleTb" Text="{Binding dish.Title}"></TextBox>
+        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left">
+            <TextBlock Text="Название  блюда" Margin="5"></TextBlock>
+            <TextBox x:Name="TitleTb" Margin="5" Height="20" Width="200" Text="{Binding dish.Title}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left">
+            <TextBlock Text="Стоимость" Margin="5"></TextBlock>
+            <TextBox x:Name="CostTb" Margin="5" Height="20" Width="80" Text="{Binding dish.Cost}" PreviewTextInput="CostTb_PreviewTextInput"></TextBox>
         </StackPanel>
         <ListView Grid.Row="1" Grid.Column="0" d:ItemsSource="{d:SampleData ItemCount=5}"
                   x:Name="IngredietnLw"
@@ -32,8 +36,8 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"></ColumnDefinition>
-                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0 " Orientation="Horizontal">
                             <TextBlock Text="Название" Margin="5"></TextBlock>
@@ -48,7 +52,9 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Row="2">
-            <Button Style="{StaticResource Mybutton}" Content="Добавить ингрединет" x:Name="AddIngredBtn" Click="AddIngredBtn_Click"></Button>
+            <Button Style="{StaticResource Mybutton}" 
+                    Height="20" Width="140"
+                    Content="Добавить ингрединет" x:Name="AddIngredBtn" Click="AddIngredBtn_Click"></Button>
         </StackPanel>
         <ListView Grid.Row="1" Grid.Column="1"
                   x:Name="StageLw"
@@ -59,19 +65,21 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="350"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Orientation="Horizontal">
-                            <TextBlock Text="Этап"></TextBlock>
-                            <TextBlock Text="{Binding Description}"></TextBlock>
+                            <TextBlock Text="Этап" Margin="5"></TextBlock>
+                            <TextBlock Margin="5" Text="{Binding Description}"></TextBlock>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Row="3" Grid.Column="1">
-            <Button Content="Добавить  этап приготовления" Style="{StaticResource Mybutton}" Click="AddCookStageBtn_Click" x:Name="AddCookStageBtn"/>
-            <Button Content="Созранить изменение" Style="{StaticResource Mybutton}" Click="SaveBtn_Click" x:Name="SaveBtn"/>
+            <Button Margin="2" Height="20" Width="190"
+                Content="Добавить  этап приготовления" Style="{StaticResource Mybutton}" Click="AddCookStageBtn_Click" x:Name="AddCookStageBtn"/>
+            <Button Content="Созранить изменение" Height="20" Width="150" Margin="2"
+                    Style="{StaticResource Mybutton}" Click="SaveBtn_Click" x:Name="SaveBtn"/>
         </StackPanel>
     </Grid>
 

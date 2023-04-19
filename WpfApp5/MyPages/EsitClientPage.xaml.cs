@@ -41,5 +41,29 @@ namespace WpfApp5.MyPages
             BdConect.db.SaveChanges();
             Navidation.NextPage(new Nav("Сотрудники", new ClientPage()));
         }
+
+        private void NameTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsLetter(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void LastNameTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsLetter(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void PatronumekTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsLetter(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

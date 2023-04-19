@@ -34,12 +34,17 @@
                             <ColumnDefinition Width="100"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Orientation="Horizontal">
-                            <TextBlock>Имя</TextBlock>
+                            <TextBlock Margin="5">Имя</TextBlock>
                             <TextBlock Text="{Binding FUO}" Margin="5"></TextBlock>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Orientation="Vertical">
-                            <Button Content="удалить " x:Name="DeletBtn" Style="{StaticResource Mybutton}" Click="DeletBtn_Click"></Button>
-                            <Button Content="Редактировать" x:Name="EditBtn"  Style="{StaticResource Mybutton}" Click="EditBtn_Click"></Button>
+                            <Button Content="удалить "
+                                    x:Name="DeletBtn" Style="{StaticResource Mybutton}" 
+                                    Height="20" Margin="2" Width="80"
+                                    Click="DeletBtn_Click"></Button>
+                            <Button Content="Редактировать" x:Name="EditBtn" 
+                                    Height="20" Margin="2" Width="80"
+                                    Style="{StaticResource Mybutton}" Click="EditBtn_Click"></Button>
                         </StackPanel>
                     </Grid>
 

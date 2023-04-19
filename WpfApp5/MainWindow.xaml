@@ -12,16 +12,18 @@
             <ColumnDefinition Width="678*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="21*"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="66*"/>
+            <RowDefinition Height="321*"/>
+            <RowDefinition Height="47*"/>
         </Grid.RowDefinitions>
-        <StackPanel Background="Yellow"  Grid.Row="0" Grid.Column="1"   >
-            <TextBlock x:Name="MyTitle"   Text="Начало работы "></TextBlock>
+        <StackPanel Background="#FF5C0F24"  Grid.Row="0" Grid.Column="1"  >
+            <TextBlock x:Name="MyTitle"  Style="{StaticResource MeTite}"  Text="Начало работы " ></TextBlock>
 
         </StackPanel>
+        <StackPanel Background="#FF5C0F24">
+            <Image Source="\Images\afb14e78701751.Y3JvcCwyNDgwLDE5MzksMCw2ODE.jpg" VerticalAlignment="Center" HorizontalAlignment="Center" Width="116" Height="67" OpacityMask="#FF5C0F24"/>
 
-        <Image Source="C:\Users\hp\source\repos\WpfApp5\WpfApp5\Images\20b200b3248f72d9de79609b1652eccd.jpg" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0"></Image>
+        </StackPanel>
 
         <Frame Grid.Row="1" x:Name="MyFrame"  Grid.Column="2" NavigationUIVisibility="Hidden"/>
         <StackPanel Background="Yellow" Grid.Row="1" Grid.Column="0">
@@ -33,8 +35,8 @@
             <Button Content="Ингредиенты" x:Name="IngredientBtn"></Button>
             <Button Content="Заказы" x:Name="OrderBtn" Click="OrderBtn_Click"></Button>
         </StackPanel>
-        <StackPanel Background="Yellow" Grid.Column="1" Grid.Row="3">
-            
-        </StackPanel>
+        <StackPanel Background="#FF5C0F24" Grid.Row="2" Grid.ColumnSpan="2" />
+        <StackPanel Grid.Row="2" Background="#FF5C0F24" Grid.Column="0"/>
+
     </Grid>
 </Window>

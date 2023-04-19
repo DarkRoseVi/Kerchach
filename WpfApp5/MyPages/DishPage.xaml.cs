@@ -26,18 +26,56 @@ namespace WpfApp5.MyPages
         public DishPage()
         {
             InitializeComponent();
-            Refrese();
+            LViewDishes.ItemsSource = BdConect.db.Dish.ToList();
+            List<Category> cated = BdConect.db.Category.ToList();
+            cated.Insert(0, new Category { Title = "Все" });
+            CategorylCb.ItemsSource = cated;
+            CategorylCb.SelectedIndex = 0;
+            List<DegreeSharpness> degreg = BdConect.db.DegreeSharpness.ToList();
+            degreg.Insert(0, new DegreeSharpness { Title = "Все" });
+            DegreeSharpnesslCb.ItemsSource = degreg;
+            DegreeSharpnesslCb.SelectedIndex = 0;
+
 
         }
         private void Refrese() 
         {
-            List<Dish> listdis = _context.Dish.ToList();
+            IEnumerable<Dish> listdis = _context.Dish.ToList();
+           
+
+            //if (CategorylCb.SelectedIndex !=0 )
+            //{
+            //    Category selecrcategory = (Category)CategorylCb.SelectedItem;
+            //    listdis = listdis.Where(x => x.CategoryId == selecrcategory.Id).ToList();
+            //}
+
+            //if (DegreeSharpnesslCb.SelectedIndex !=0 )
+            //{
+            //    DegreeSharpness selectdegree = (DegreeSharpness)DegreeSharpnesslCb.SelectedItem;
+            //    listdis = listdis.Where(x => x.DegreeSharpnessId == selectdegree.Id).ToList();
+            //}
             LViewDishes.ItemsSource = listdis;
+
         }
 
         private void LViewDishes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Navidation.NextPage(new Nav("Рецепт", new RecipePage(LViewDishes.SelectedItem as Dish)));
+        }
+
+        private void DegreeSharpnesslCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refrese();
+        }
+
+        private void PoisTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Refrese();
+        }
+
+        private void CategorylCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refrese();
         }
     }
 }

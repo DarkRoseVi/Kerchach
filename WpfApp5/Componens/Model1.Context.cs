@@ -34,12 +34,14 @@ namespace WpfApp5.Componens
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<Ingredient> Ingredient { get; set; }
         public virtual DbSet<IngredientOfCookingSage> IngredientOfCookingSage { get; set; }
+        public virtual DbSet<Landing> Landing { get; set; }
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderDish> OrderDish { get; set; }
         public virtual DbSet<Otdel> Otdel { get; set; }
         public virtual DbSet<Provider> Provider { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Unit> Unit { get; set; }
         public virtual DbSet<Сlient> Сlient { get; set; }
-        public virtual DbSet<Landing> Landing { get; set; }
     }
 }

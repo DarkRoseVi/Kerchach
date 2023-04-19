@@ -39,6 +39,7 @@ namespace WpfApp5.MyPages
         {
             BdConect.db.Order.Load();
             orders = BdConect.db.Order.Local;
+             
             InitializeComponent();
 
         }
