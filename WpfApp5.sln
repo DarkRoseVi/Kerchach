@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp5", "WpfApp5\WpfApp5.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWpf", "ClientWpf\ClientWpf.csproj", "{7D2558ED-93E4-4F6E-9DC6-DB078E3AC26B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaiterWpf", "WaiterWpf\WaiterWpf.csproj", "{F37E5C8F-765D-4F8D-8BFF-866886142A98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7D2558ED-93E4-4F6E-9DC6-DB078E3AC26B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D2558ED-93E4-4F6E-9DC6-DB078E3AC26B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D2558ED-93E4-4F6E-9DC6-DB078E3AC26B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F37E5C8F-765D-4F8D-8BFF-866886142A98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F37E5C8F-765D-4F8D-8BFF-866886142A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F37E5C8F-765D-4F8D-8BFF-866886142A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F37E5C8F-765D-4F8D-8BFF-866886142A98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

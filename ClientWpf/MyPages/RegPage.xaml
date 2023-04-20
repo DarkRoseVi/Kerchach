@@ -9,6 +9,25 @@
       Title="RegPage">
 
     <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Логин"/>
+            <TextBox x:Name="LoginTb" Style="{StaticResource myTestBox}" Margin="5"/>
+            <TextBlock Text="Пароль" />
+            <TextBox x:Name="PasswordTb" Style="{StaticResource myTestBox}" Margin="5"/>
+            <TextBlock Text="Имя" />
+            <TextBox x:Name="NameTb" Style="{StaticResource myTestBox}" Margin="5"/>
+            <TextBlock Text="Фамилия" />
+            <TextBox x:Name="LastNameTb" Style="{StaticResource myTestBox}" Margin="5"/>
+            <TextBlock Text="Отчетсво" />
+            <TextBox x:Name="PatronimecTb" Style="{StaticResource myTestBox}" Margin="5"/>
+            <StackPanel Orientation="Horizontal">
+            <Button Style="{StaticResource Mybutton}"
+                    Content="Зарегистрироваться" x:Name="RegBtn" Click="RegBtn_Click"/>
+                <Button Style="{StaticResource Mybutton}"
+                        Content="Очистить" x:Name="ClearBtn" Click="ClearBtn_Click"
+                        />
+            </StackPanel>
         
+        </StackPanel>
     </Grid>
 </Page>

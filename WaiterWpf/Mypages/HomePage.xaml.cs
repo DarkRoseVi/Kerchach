@@ -12,10 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ClientWpf.Components;
-using ClientWpf.MyPages;
+using WaiterWpf.Mypages;
 
-namespace ClientWpf.MyPages
+namespace WaiterWpf.Mypages
 {
     /// <summary>
     /// Логика взаимодействия для HomePage.xaml
@@ -25,25 +24,21 @@ namespace ClientWpf.MyPages
         public HomePage()
         {
             InitializeComponent();
-            //NameTb.Text = Navogation.AutoUser.Name;
-            //lastnameTb.Text  = Navogation.AutoUser.LastName;
-            //PatromimecTb.Text = Navogation.AutoUser.Patronymic;
         }
 
         private void DishBtn_Click(object sender, RoutedEventArgs e)
         {
-            //InfaSt.Visibility.HasFlag(Visibility.Visible);
             MyFrame.NavigationService.Navigate(new DishPage());
         }
 
         private void OrderBtn_Click(object sender, RoutedEventArgs e)
         {
-            MyFrame.NavigationService.Navigate( new AddOrderPage());
+            MyFrame.NavigationService.Navigate(new OrderPage());
         }
 
-        private void ExsitBtn_Click(object sender, RoutedEventArgs e)
+        private void ClientBtn_Click(object sender, RoutedEventArgs e)
         {
-          NavigationService.Navigate(new AutoPage());
+            MyFrame.NavigationService.Navigate(new ClientPage());
         }
     }
 }

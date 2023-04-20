@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="95ddf065636347bb9143fbd3acdd56b6" Name="Diagram1">
+        <EntityTypeShape EntityType="kersachViModel.Category" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.CookingStage" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.CountryOrigin" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.CountryOriginDish" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.DegreeSharpness" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.Dish" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.Employees" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.Ingredient" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.IngredientOfCookingSage" Width="1.5" PointX="7.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.Landing" Width="1.5" PointX="7.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.Order" Width="1.5" PointX="11.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.OrderDish" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.Otdel" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.Provider" Width="1.5" PointX="5.25" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.Role" Width="1.5" PointX="3.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.Unit" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kersachViModel.Сlient" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="kersachViModel.FK_Dish_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_CookingStage_Dish" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_IngredientOfCookingSage_CookingStage" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_CountryOriginDish_CountryOrigin" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_CountryOriginDish_Dish" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_Dish_DegreeSharpness" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_Dish_Otdel" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_OrderDish_Dish" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_Employees_Otdel" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_Employees_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_Order_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_Ingredient_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_IngredientOfCookingSage_Ingredient" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_Landing_Ingredient" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_Landing_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_Order_Сlient" ManuallyRouted="false" />
+        <AssociationConnector Association="kersachViModel.FK_OrderDish_Order" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
