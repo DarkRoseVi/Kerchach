@@ -11,9 +11,9 @@ namespace ClientWpf.Components
     internal class Navogation
     {
         public static List<Nav> navs = new List<Nav>();
-        public static MainWindow main;
+        //public static MainWindow main;
         public static Сlient AutoUser;
-        public static bool IsUser;
+        //public static bool IsUser;
         public static void NextPage(Nav nav)
         {
             navs.Add(nav);
