@@ -6,9 +6,74 @@
       xmlns:local="clr-namespace:WaiterWpf.Mypages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+                  DataContext="{Binding RelativeSource={RelativeSource Self}}"
+
       Title="OrderPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="263*"/>
+            <RowDefinition Height="53*"/>
+        </Grid.RowDefinitions>
+        <ListView ItemsSource="{Binding orders}" Grid.Row="0" 
+                  Width="750"
+                  x:Name="OrdertListViu" d:ItemsSource="{d:SampleData ItemCount=5}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="600"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="68"></RowDefinition>
+                                <RowDefinition Height="61"></RowDefinition>
+
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0">
+                                <TextBlock Margin="5"> Номер заказа</TextBlock>
+                                <TextBlock  Margin="5" Text="{Binding Id}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1">
+                                <TextBlock>Сумма</TextBlock>
+                                <TextBlock Text="{Binding TotalSum}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="1">
+                                <TextBlock> Заказчик</TextBlock>
+                                <TextBlock Text="{Binding Сlient.FUO }"></TextBlock>
+                                <TextBlock>Ответсвенный</TextBlock>
+                                <TextBlock Text="{Binding Employees.FUO}"></TextBlock>
+                            </StackPanel>
+
+                            <ItemsControl Grid.Row="1" Grid.Column="1"
+                                          ItemsSource="{Binding OrderDish}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel IsItemsHost="True"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border  Margin="5 0 15 0" BorderThickness="1" >
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Dish.Title}" Margin="2"/>
+                                                <TextBlock Text="{Binding Dish.Cost}" Margin="2"/>
+                                                <TextBlock Text="{Binding Quantity}" Margin="2"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Row="1" Margin="0 15 0 0 ">
+            <Button  Height="20" Width="60" Content="добавить"  Style="{StaticResource Mybutton}" Click="Button_Click" ></Button>
+        </StackPanel>
     </Grid>
 </Page>

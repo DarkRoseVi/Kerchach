@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WaiterWpf.Mypages;
+using WaiterWpf.Mypages;
+
 
 namespace WaiterWpf
 {
@@ -23,6 +26,7 @@ namespace WaiterWpf
         public MainWindow()
         {
             InitializeComponent();
+            myFrame.NavigationService.Navigate(new AutoPage());
         }
     }
 }

@@ -11,10 +11,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfApp5.Componens;
-using WpfApp5.MyPages;
+using WaiterWpf.Mypages;
+using WaiterWpf.Components;
 
-namespace WpfApp5.MyPages
+
+namespace WaiterWpf.Mypages
 {
     /// <summary>
     /// Логика взаимодействия для DishOrderAdd.xaml
@@ -23,15 +24,14 @@ namespace WpfApp5.MyPages
     {
         public List<Dish> dishes { get; set; }
         private Order _order;
-
         public DishOrderAdd(IEnumerable<Dish> _dishes, Order order)
-        { 
+        {
             _order = order;
 
             List<int> disexh = _dishes.Select(s => s.Id).ToList();
 
-            dishes = BdConect.db.Dish.Where(x => disexh.Contains(x.Id) == false).ToList(); 
-  
+            dishes = BdConect.db.Dish.Where(x => disexh.Contains(x.Id) == false).ToList();
+
             InitializeComponent();
         }
 
@@ -53,13 +53,8 @@ namespace WpfApp5.MyPages
                 );
 
             BdConect.db.SaveChanges();
-            AddOrderPage.UpdateIngridientListWithOrder(_order);
+            AddOrderpage.UpdateIngridientListWithOrder(_order);
             Close();
-
-          //  AddOrderPage.Instance.diseslidt.Add(IngridientList.SelectedItem as Dish);
-          //  Close();
         }
-
-       
     }
 }

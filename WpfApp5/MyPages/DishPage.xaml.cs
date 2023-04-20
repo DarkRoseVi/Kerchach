@@ -43,18 +43,18 @@ namespace WpfApp5.MyPages
             IEnumerable<Dish> listdis = _context.Dish.ToList();
 
 
-            //if (CategorylCb.SelectedIndex != 0)
-            //{
-            //    Category selecrcategory = (Category)CategorylCb.SelectedItem;
-            //    listdis = listdis.Where(x => x.CategoryId == selecrcategory.Id).ToList();
-            //}
+            if (CategorylCb.SelectedIndex != 0)
+            {
+                Category selecrcategory = (Category)CategorylCb.SelectedItem;
+                listdis = listdis.Where(x => x.CategoryId == selecrcategory.Id).ToList();
+            }
 
-            //if (DegreeSharpnesslCb.SelectedIndex != 0)
-            //{
-            //    DegreeSharpness selectdegree = (DegreeSharpness)DegreeSharpnesslCb.SelectedItem;
-            //    listdis = listdis.Where(x => x.DegreeSharpnessId == selectdegree.Id).ToList();
-            //}
-            //LViewDishes.ItemsSource = listdis;
+            if (DegreeSharpnesslCb.SelectedIndex != 0)
+            {
+                DegreeSharpness selectdegree = (DegreeSharpness)DegreeSharpnesslCb.SelectedItem;
+                listdis = listdis.Where(x => x.DegreeSharpnessId == selectdegree.Id).ToList();
+            }
+            LViewDishes.ItemsSource = listdis;
 
         }
 
