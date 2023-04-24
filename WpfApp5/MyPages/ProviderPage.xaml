@@ -35,8 +35,8 @@
                             <TextBlock Margin="5" Text="{Binding Adress}"/>
                             </StackPanel>
                             <StackPanel Orientation="Vertical">
-                            <TextBlock Margin="5" Text="Телефон"/>
-                            <TextBlock Margin="5" Text="{Binding Phone}"/>
+                                <TextBlock Margin="5" Text="Телефон"/>
+                                <TextBlock Margin="5" Text="{Binding Phone}"/>
                             </StackPanel>
                             <!--<TextBlock Margin="5">ПОлная информация</TextBlock>
                             <TextBlock Text="{Binding inf}" Margin="5"></TextBlock>--> 
