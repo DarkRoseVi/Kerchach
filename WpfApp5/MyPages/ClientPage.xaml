@@ -15,11 +15,6 @@
             <RowDefinition Height="53*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
-            
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="5"></TextBlock>
-                <TextBox x:Name="PoisTb" Style="{StaticResource MyTextBox}" Margin="5"></TextBox>
-            </StackPanel>
             <StackPanel  Orientation="Horizontal" >
                 <TextBlock  VerticalAlignment ="Center" Margin="5">Сортировка</TextBlock>
                 <ComboBox x:Name="SortCb" Margin="5" Style="{StaticResource MyTComboBox}" SelectionChanged="SortCb_SelectionChanged" >
@@ -27,6 +22,10 @@
                     <ComboBoxItem Tag="2">от Я до А</ComboBoxItem>
                     <ComboBoxItem Tag="3">все</ComboBoxItem>
                 </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="5"></TextBlock>
+                <TextBox x:Name="PoisTb" Style="{StaticResource MyTextBox}" Margin="5" TextChanged="PoisTb_TextChanged_1"></TextBox>
             </StackPanel>
         </StackPanel>
         <ListView Margin="5"  Grid.Row="1" x:Name="ClientLW" d:ItemsSource="{d:SampleData ItemCount=5}"  >

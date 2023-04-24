@@ -70,7 +70,7 @@ namespace WpfApp5.MyPages
                 return;
             if (PoisTb.Text.Length > 0 )
             {
-                clList = clList.Where(x => x.LastName.StartsWith(PoisTb.Text) );
+                clList = clList.Where(x => x.LastName.StartsWith(PoisTb.Text) || x.LastName.StartsWith(PoisTb.Text) );
              }
             ClientLW.ItemsSource = clList.ToList();
         }
@@ -90,6 +90,11 @@ namespace WpfApp5.MyPages
         }
 
         private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Reshre();
+        }
+
+        private void PoisTb_TextChanged_1(object sender, TextChangedEventArgs e)
         {
             Reshre();
         }

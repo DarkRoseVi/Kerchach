@@ -39,8 +39,17 @@
                         </Grid.RowDefinitions>
                         <Image Source="{Binding Photo }"></Image>
                         <StackPanel Grid.Column="1" Orientation="Vertical">
-                            <TextBlock>Название</TextBlock>
-                            <TextBlock Text="{Binding Title}" Margin="5"></TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="Название" Margin="5"/> 
+                                    <TextBlock Text="{Binding Title}" Margin="5"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="Единица измерения"  Margin="5"/>
+                                    <TextBlock Text="{Binding Unit.Title}" Margin="5"/>
+                                </StackPanel>
+                            </StackPanel>
+                            
                             <StackPanel HorizontalAlignment="Left">
                                 <Button Content="Удалить " x:Name="DeletBtn" 
                                     Style="{StaticResource Mybutton}" 

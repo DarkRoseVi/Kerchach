@@ -26,6 +26,7 @@ namespace WpfApp5.MyPages
         {
             InitializeComponent();
             ProviderLW.ItemsSource = BdConect.db.Provider.ToList();
+
         }
 
     

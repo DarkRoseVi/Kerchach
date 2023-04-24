@@ -66,7 +66,7 @@ namespace WpfApp5.MyPages
                 return;
             if (PoisTb.Text.Length > 0 )
             {
-                employeslist = employeslist.Where(x => x.Name.StartsWith(PoisTb.Text));
+                employeslist = employeslist.Where(x => x.Name.StartsWith(PoisTb.Text) || x.LastName.StartsWith(PoisTb.Text));
             }
             EmployeeLW.ItemsSource = employeslist.ToList();
         }

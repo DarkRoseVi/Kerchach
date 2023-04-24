@@ -16,22 +16,34 @@
             <RowDefinition Height="53*"/>
         </Grid.RowDefinitions>
  
-        <ListView Grid.Row="0" x:Name="ProviderLW"  >
+        <ListView Grid.Row="0" x:Name="ProviderLW" d:ItemsSource="{d:SampleData ItemCount=5}"  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="250"></ColumnDefinition>
-                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="600"></ColumnDefinition>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Orientation="Horizontal">
-                            <TextBlock>ПОлная информация</TextBlock>
-                            <TextBlock Text="{Binding inf}" Margin="5"></TextBlock> 
+                     
+                            <StackPanel Orientation="Vertical">
+                            <TextBlock Margin="5" Text="Название"/>
+                            <TextBlock Margin="5" Text="{Binding Title}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                            <TextBlock Margin="5" Text="Адрес"/>
+                            <TextBlock Margin="5" Text="{Binding Adress}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                            <TextBlock Margin="5" Text="Телефон"/>
+                            <TextBlock Margin="5" Text="{Binding Phone}"/>
+                            </StackPanel>
+                            <!--<TextBlock Margin="5">ПОлная информация</TextBlock>
+                            <TextBlock Text="{Binding inf}" Margin="5"></TextBlock>--> 
                         </StackPanel>
                         <StackPanel Grid.Column="1" Orientation="Vertical">
                             <Button Content="удалить " x:Name="DeletBtn" Style="{StaticResource Mybutton}"></Button>
-                            <Button Content="Редактировать" x:Name="EditBtn"  Style="{StaticResource Mybutton}" ></Button>
-                            <Button Content="Просмотр" x:Name="ProsmotrBtn" Style="{ StaticResource Mybutton}" Click="ProsmotrBtn_Click"></Button>
+                            <Button Content="Редактировать" x:Name="ProsmotrBtn" Style="{ StaticResource Mybutton}" Click="ProsmotrBtn_Click"></Button>
                         </StackPanel>
                     </Grid>
 

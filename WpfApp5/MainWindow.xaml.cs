@@ -58,5 +58,10 @@ namespace WpfApp5
         {
             Navidation.NextPage(new Nav("", new IngredientPage()));
         }
+
+        private void LandingBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navidation.NextPage(new Nav("", new LandingPage()));
+        }
     }
 }
