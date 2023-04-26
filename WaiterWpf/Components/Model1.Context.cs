@@ -40,6 +40,7 @@ namespace WaiterWpf.Components
         public virtual DbSet<Otdel> Otdel { get; set; }
         public virtual DbSet<Provider> Provider { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Unit> Unit { get; set; }
         public virtual DbSet<Сlient> Сlient { get; set; }

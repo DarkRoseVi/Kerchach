@@ -76,8 +76,6 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Row="3" Grid.Column="1">
-            <Button Margin="2" Height="20" Width="190"
-                Content="Добавить  этап приготовления" Style="{StaticResource Mybutton}" Click="AddCookStageBtn_Click" x:Name="AddCookStageBtn"/>
             <Button Content="Созранить изменение" Height="20" Width="150" Margin="2"
                     Style="{StaticResource Mybutton}" Click="SaveBtn_Click" x:Name="SaveBtn"/>
         </StackPanel>

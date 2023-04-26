@@ -5,11 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp5.MyPages"
         mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Title="AddCookStage" Height="450" Width="800">
     <Grid>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Название блюда"  Margin="5"/>
+            <TextBlock x:Name="DisTb" Margin="5"/>
+            
+            <TextBlock Text="Ингрединет"/>
+            <ComboBox x:Name="IngredienCb"   
+                      SelectedItem="{Binding Ingredient}"/>
+            <TextBlock Text="Количество"/>
+            <TextBox x:Name="QuantityTb" 
+                     Text="{Binding Quantity}"/>
             <TextBlock Text="Описание"></TextBlock>
-            <TextBox Text="{Binding Description}" Style="{StaticResource MyTextBox}" Width="123"></TextBox>
+            <TextBox Text="{Binding Description}" x:Name="DescriptionTb"
+                     Style="{StaticResource MyTextBox}" Width="123"></TextBox>
             <Button x:Name="SaveBtn" Content="Save" Margin="5" Click="SaveBtn_Click"></Button>
         </StackPanel>
     </Grid>

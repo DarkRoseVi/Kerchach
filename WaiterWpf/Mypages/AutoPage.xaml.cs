@@ -39,14 +39,19 @@ namespace WaiterWpf.Mypages
             else
             {
                 var users = BdConect.db.Employees.Where(x => x.Login == login && x.Password == password).FirstOrDefault();
-                if (users == null)
+                if (users == null )
                 {
-                    MessageBox.Show("Увы такого пользователя нет,зарегистрируйтесь пожалуйства ");
+                    MessageBox.Show("Увы такого пользователя нет,зарегистрируйтесь пожалуйства");
                 }
                 else
                 {
-                    Navigation.AutoUser = users;
-                    NavigationService.Navigate(new HomePage());
+                    if (users.RoleId == 5)
+                    {
+
+                        Navigation.AutoUser = users;
+                        NavigationService.Navigate(new HomePage());
+                    }
+                    else MessageBox.Show("У вас нет прав официанта");
                 }
             }
         }

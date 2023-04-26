@@ -22,5 +22,17 @@ namespace WpfApp5.Componens
           return  this.OrderDish.Sum(x=> x.Dish.Cost * x.Quantity);
             }
         }
+        public string ColorStatyd 
+        {
+            get 
+            {
+                if (StatysId == 3)
+                    return "#90EE90";
+                else if (StatysId == 4)
+                    return "#FA8072";
+                else
+                    return "#FFFFFF";
+            }
+        }
     } 
 }

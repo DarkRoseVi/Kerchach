@@ -14,12 +14,21 @@ namespace WpfApp5.Componens
     
     public partial class CookingStage
     {
+        private int v1;
+        private string v2;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CookingStage()
         {
             this.IngredientOfCookingSage = new HashSet<IngredientOfCookingSage>();
         }
-    
+
+        public CookingStage(int v1, string v2)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+        }
+
         public int Id { get; set; }
         public string Description { get; set; }
         public Nullable<int> DishId { get; set; }

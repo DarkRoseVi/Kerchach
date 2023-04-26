@@ -36,6 +36,8 @@ namespace WpfApp5.MyPages
             ClientCb.DisplayMemberPath = "LastName";
             EmployeeCb.ItemsSource = BdConect.db.Employees.ToList();
             EmployeeCb.DisplayMemberPath = "LastName";
+            StatysCb.ItemsSource = BdConect.db.Status.ToList();
+            StatysCb.DisplayMemberPath = "Title";
             UpdateIngridientListWithOrder(orders);
         }
         public static void UpdateIngridientListWithOrder(Order orders)
@@ -47,8 +49,12 @@ namespace WpfApp5.MyPages
         {
             orders.Сlient = ClientCb.SelectedItem as Сlient;
             orders.Employees = EmployeeCb.SelectedItem as Employees;
+            orders.Status = StatysCb.SelectedItem as Status;
+
             orders.Sum = 0;
             orders.OrderDish = BdConect.db.OrderDish.Local.Where(x => x.OrserId == orders.Id).ToArray();
+            MessageBox.Show("Заказ создан");
+
             BdConect.db.SaveChanges();
         }
 

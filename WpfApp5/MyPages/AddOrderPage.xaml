@@ -29,6 +29,10 @@
                        ></TextBlock>
             <ComboBox Name="EmployeeCb" Style="{StaticResource MyTComboBox}" 
                       SelectedItem="{Binding orders.Employees}"></ComboBox>
+            <TextBlock Text="Статус заказа" HorizontalAlignment="Center" Margin="5"/>
+            <ComboBox x:Name="StatysCb" Style="{StaticResource MyTComboBox}"
+                      SelectedItem="{Binding orders.Status}"
+                      />
             <Button Style="{StaticResource Mybutton}" Height="20" 
                    Margin="10" Width="80"
                 Content="Сохранить" x:Name="SaveBtn" Click="SaveBtn_Click"></Button>
@@ -44,7 +48,8 @@
                     <Grid>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding Title}" Margin="5"/>
-                            <!--<TextBlock Text="{Binding  }" Margin="5"/>-->
+                            <TextBlock Margin="5" Text="{Binding Quantity}"/>
+
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

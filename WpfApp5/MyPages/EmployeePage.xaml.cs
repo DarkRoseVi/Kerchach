@@ -29,7 +29,8 @@ namespace WpfApp5.MyPages
             List<Role> listrole = BdConect.db.Role.ToList();
             listrole.Insert(0, new Role { Title = "Все роли" });
             OtdelCb.ItemsSource = listrole;
-            OtdelCb.SelectedIndex = 0; 
+            OtdelCb.SelectedIndex = 0;
+
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
@@ -56,12 +57,11 @@ namespace WpfApp5.MyPages
          private void Reshres() 
         {
             IEnumerable<Employees> employeslist = BdConect.db.Employees.ToList();
-            if (OtdelCb.SelectedIndex != 0 )
+            if (OtdelCb.SelectedIndex != 0)
             {
                 Role selectedrole = (Role)OtdelCb.SelectedItem;
                 employeslist = employeslist.Where(x => x.RoleId == selectedrole.Id).ToList();
-                            }
-
+            }
             if (PoisTb == null)
                 return;
             if (PoisTb.Text.Length > 0 )
@@ -71,12 +71,13 @@ namespace WpfApp5.MyPages
             EmployeeLW.ItemsSource = employeslist.ToList();
         }
 
-        private void OtdelCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+      
+        private void PoisTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             Reshres();
         }
 
-        private void PoisTb_TextChanged(object sender, TextChangedEventArgs e)
+        private void OtdelCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Reshres();
         }

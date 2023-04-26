@@ -16,12 +16,12 @@
             <RowDefinition Height="263*"/>
             <RowDefinition Height="53*"/>
         </Grid.RowDefinitions>
-        <ListView ItemsSource="{Binding orders}" Grid.Row="0" 
+        <ListView  Grid.Row="0" 
                   Width="750"
                   x:Name="OrdertListViu" d:ItemsSource="{d:SampleData ItemCount=5}" >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border>
+                    <Border Background="{Binding ColorStatyd}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100"/>
@@ -29,7 +29,7 @@
 
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="68"></RowDefinition>
+                                <RowDefinition Height="80"></RowDefinition>
                                 <RowDefinition Height="61"></RowDefinition>
 
                             </Grid.RowDefinitions>
@@ -42,10 +42,30 @@
                                 <TextBlock Text="{Binding TotalSum}"></TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Row="0" Grid.Column="1">
-                                <TextBlock> Заказчик</TextBlock>
-                                <TextBlock Text="{Binding Сlient.FUO }"></TextBlock>
-                                <TextBlock>Ответсвенный</TextBlock>
-                                <TextBlock Text="{Binding Employees.FUO}"></TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Margin="5"> Заказчик</TextBlock>
+                                    <TextBlock  Margin="5" Text="{Binding Сlient.FUO }"></TextBlock>
+                                    <TextBlock Margin="5">Ответсвенный</TextBlock>
+                                    <TextBlock Margin="5" Text="{Binding Employees.LastName}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Margin="5" Text="Статус"/>
+                                    <TextBlock  Margin="5" Text="{Binding Status.Title}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource Mybutton}"
+                                        Content="Удалить"
+                                        Height="20" 
+                                        Width="80"
+                                        HorizontalAlignment="Left"
+                                    x:Name="DeletBtn"
+                                            Click="DeletBtn_Click"
+                                        />
+                                    <Button x:Name="EditBtn" Content="Редактирование"
+                                            Style="{StaticResource Mybutton}"
+                                         Click="EditBtn_Click"
+                                            />
+                                </StackPanel>
                             </StackPanel>
 
                             <ItemsControl Grid.Row="1" Grid.Column="1"

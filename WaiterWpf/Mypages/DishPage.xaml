@@ -19,14 +19,25 @@
         <StackPanel Orientation="Horizontal">
             <StackPanel Orientation="Vertical" Margin="5">
                 <TextBlock Text="Сортировка по категории" Margin="5" VerticalAlignment="Center"></TextBlock>
-                <ComboBox Height="20" Width="150"
-                          DisplayMemberPath="Name"  Margin="5" x:Name="CategorylCb" SelectionChanged="CategorylCb_SelectionChanged"></ComboBox>
+                <ComboBox
+                          DisplayMemberPath="Title"  Margin="5" x:Name="CategorylCb" SelectionChanged="CategorylCb_SelectionChanged"></ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="5">
-                <TextBlock Text="Сортировка по остроте" Margin="5" VerticalAlignment="Center"></TextBlock>
-                <ComboBox Height="20" Width="150"
-                          DisplayMemberPath="Title"  Margin="5" x:Name="DegreeSharpnesslCb" SelectionChanged="DegreeSharpnesslCb_SelectionChanged"></ComboBox>
+                <TextBlock Text="Сортировка по остроте" Margin="5" 
+                           VerticalAlignment="Center"></TextBlock>
+                <ComboBox 
+                      Margin="5" 
+                          x:Name="DegreeSharpnesslCb" 
+                          SelectionChanged="DegreeSharpnesslCb_SelectionChanged">
+
+                    <ComboBoxItem Tag="1">Все</ComboBoxItem>
+                    <ComboBoxItem Tag="2">не остро</ComboBoxItem>
+                    <ComboBoxItem Tag="3">стреднее</ComboBoxItem>
+                    <ComboBoxItem Tag="4">терпиом</ComboBoxItem>
+                    <ComboBoxItem Tag="5">остро</ComboBoxItem>
+                    <ComboBoxItem Tag="6">сверх остро</ComboBoxItem>
+                </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="5">
                 <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="5"></TextBlock>
@@ -35,7 +46,7 @@
             </StackPanel>
         </StackPanel>
 
-        <ListView Grid.Row="2" x:Name="LViewDishes" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  d:ItemsSource="{d:SampleData ItemCount=5}" >
+        <ListView Grid.Row="2" x:Name="LViewDishes" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">

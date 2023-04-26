@@ -25,27 +25,45 @@ namespace WaiterWpf.Mypages
     /// </summary>
     public partial class OrderPage : Page
     {
-        public ObservableCollection<Order> orders
-        {
-            get { return (ObservableCollection<Order>)GetValue(ordersProperty); }
-            set { SetValue(ordersProperty, value); }
-        }
+        //public ObservableCollection<Order> orders
+        //{
+        //    get { return (ObservableCollection<Order>)GetValue(ordersProperty); }
+        //    set { SetValue(ordersProperty, value); }
+        //}
 
-        public static readonly DependencyProperty ordersProperty =
-            DependencyProperty.Register("orders", typeof(ObservableCollection<Order>), typeof(OrderPage));
+        //public static readonly DependencyProperty ordersProperty =
+        //    DependencyProperty.Register("orders", typeof(ObservableCollection<Order>), typeof(OrderPage));
 
         public OrderPage()
         {
-            BdConect.db.Order.Load();
-            orders = BdConect.db.Order.Local;
-
+            //BdConect.db.Order.Load();
+            int us = Navigation.AutoUser.Id;
+            /*rders = BdConect.db.Order.Local;
+*/
             InitializeComponent();
-          
+            OrdertListViu.ItemsSource = BdConect.db.Order.Where(x => x.EmployeesId == us).ToList();
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddOrderpage(new Order()));
+        }
+
+        private void DeletBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var em = (sender as Button).DataContext as Order;
+            if (MessageBox.Show("Вы точно хотите удалить эту запись", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                BdConect.db.Order.Remove(em);
+            BdConect.db.SaveChanges();
+            OrdertListViu.ItemsSource = BdConect.db.Order.ToList();
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var ord = (sender as Button).DataContext as Order;
+            NavigationService.Navigate(new EditPage(ord));
         }
     }
 }

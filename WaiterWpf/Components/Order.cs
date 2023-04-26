@@ -24,8 +24,10 @@ namespace WaiterWpf.Components
         public Nullable<int> EmployeesId { get; set; }
         public Nullable<int> ClientId { get; set; }
         public Nullable<decimal> Sum { get; set; }
+        public Nullable<int> StatysId { get; set; }
     
         public virtual Employees Employees { get; set; }
+        public virtual Status Status { get; set; }
         public virtual Сlient Сlient { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDish> OrderDish { get; set; }

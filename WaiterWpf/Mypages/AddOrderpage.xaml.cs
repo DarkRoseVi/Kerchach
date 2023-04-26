@@ -16,6 +16,7 @@ using WaiterWpf.Components;
 using WaiterWpf.Mypages;
 
 
+
 namespace WaiterWpf.Mypages
 {
     /// <summary>
@@ -48,6 +49,8 @@ namespace WaiterWpf.Mypages
             ClientCb.DisplayMemberPath = "LastName";
             EmployeeCb.ItemsSource = BdConect.db.Employees.ToList();
             EmployeeCb.DisplayMemberPath = "LastName";
+            StatysCb.ItemsSource = BdConect.db.Status.ToList();
+            StatysCb.DisplayMemberPath = "Title";
             UpdateIngridientListWithOrder(orders);
         }
         public static void UpdateIngridientListWithOrder(Order orders)
@@ -60,6 +63,7 @@ namespace WaiterWpf.Mypages
             orders.Сlient = ClientCb.SelectedItem as Сlient;
             orders.Employees = EmployeeCb.SelectedItem as Employees;
             orders.Sum = 0;
+            orders.Status = StatysCb.SelectedItem as Status;
             orders.OrderDish = BdConect.db.OrderDish.Local.Where(x => x.OrserId == orders.Id).ToArray();
             BdConect.db.SaveChanges();
         }

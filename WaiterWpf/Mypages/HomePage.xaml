@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WaiterWpf.Mypages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="HomePage">
+      Title="HomePage"  >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="115*"/>
@@ -17,9 +17,13 @@
             <RowDefinition Height="321*"/>
             <RowDefinition Height="47*"/>
         </Grid.RowDefinitions>
-        <StackPanel Background="#FF5C0F24"  Grid.Row="0" Grid.Column="1"  >
-            <TextBlock x:Name="MyTitle"  Text="Начало работы " ></TextBlock>
-
+        <StackPanel Background="#FF5C0F24"  Grid.Row="0" Grid.Column="1" >
+            <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="5 15 0 0" >
+            <TextBlock x:Name="MyTitle" Text="Удачной работы" Style="{StaticResource Tb}"></TextBlock>
+            <TextBlock x:Name="NameTb" Style="{StaticResource Tb}"/>
+            <TextBlock x:Name="LastNamTb" Style="{StaticResource Tb}"/>
+                
+            </StackPanel>
         </StackPanel>
         <StackPanel Background="#FF5C0F24">
             <Image Source="\Images\afb14e78701751.Y3JvcCwyNDgwLDE5MzksMCw2ODE.jpg" VerticalAlignment="Center" HorizontalAlignment="Center" Width="116" Height="67" OpacityMask="#FF5C0F24"/>
@@ -34,6 +38,8 @@
 
         </StackPanel>
         <StackPanel Background="#FF5C0F24" Grid.Row="2" Grid.ColumnSpan="2" />
-        <Button Grid.Row="2" Style="{StaticResource Mybutton}" Content="Выход" Margin="5" x:Name="ExsitBtn" />
+        <Button Grid.Row="2" Style="{StaticResource Mybutton}"
+                Click="ExsitBtn_Click"
+                Content="Выход" Margin="5" x:Name="ExsitBtn" />
     </Grid>
 </Page>

@@ -25,6 +25,8 @@ namespace WaiterWpf.Mypages
         public HomePage()
         {
             InitializeComponent();
+            NameTb.Text = Navigation.AutoUser.Name;
+            LastNamTb.Text = Navigation.AutoUser.LastName;
         }
 
         private void DishBtn_Click(object sender, RoutedEventArgs e)
@@ -41,5 +43,12 @@ namespace WaiterWpf.Mypages
         {
             MyFrame.NavigationService.Navigate(new ClientPage());
         }
+
+        private void ExsitBtn_Click(object sender, RoutedEventArgs e) 
+        {
+            NavigationService.Navigate(new AutoPage());
+        }
+  
+       
     }
 }

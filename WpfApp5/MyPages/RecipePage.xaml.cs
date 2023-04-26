@@ -55,20 +55,19 @@ namespace WpfApp5.MyPages
         }
 
 
-        private void AddIngredBtn_Click(object sender, RoutedEventArgs e)
-        {
+        private void AddIngredBtn_Click(object sender, RoutedEventArgs e)=>
+            new AddCookStage(new Ingredient(),dish).ShowDialog();
 
-        }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            dish.Title = TitleTb.Text.Trim();
+            dish.Cost =int.Parse( CostTb.Text.Trim());
+            BdConect.db.SaveChanges();
         }
 
-        private void AddCookStageBtn_Click(object sender, RoutedEventArgs e)
-        {
+
         
-        }
 
         private void CostTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
