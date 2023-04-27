@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -158,6 +159,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyPages\AddImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyPages\AddIngredientProv.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -226,6 +231,9 @@
   <ItemGroup>
     <Compile Include="MyPages\AddCookStage.xaml.cs">
       <DependentUpon>AddCookStage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyPages\AddImage.xaml.cs">
+      <DependentUpon>AddImage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyPages\AddIngredientProv.xaml.cs">
       <DependentUpon>AddIngredientProv.xaml</DependentUpon>

@@ -21,7 +21,7 @@
             <TextBlock Text="Описание"></TextBlock>
             <TextBox Text="{Binding Description}" x:Name="DescriptionTb"
                      Style="{StaticResource MyTextBox}" Width="123"></TextBox>
-            <Button x:Name="SaveBtn" Content="Save" Margin="5" Click="SaveBtn_Click"></Button>
+            <Button Style="{StaticResource Mybutton}" x:Name="SaveBtn" Content="Сохранить" Margin="5" Click="SaveBtn_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>

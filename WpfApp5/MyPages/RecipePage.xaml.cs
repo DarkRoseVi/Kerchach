@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using WpfApp5.Componens;
 using WpfApp5.MyPages;
 using System.Data.Entity;
+using System.Management.Instrumentation;
 
 namespace WpfApp5.MyPages
 {
@@ -53,7 +54,7 @@ namespace WpfApp5.MyPages
         
             InitializeComponent();
         }
-
+   
 
         private void AddIngredBtn_Click(object sender, RoutedEventArgs e)=>
             new AddCookStage(new Ingredient(),dish).ShowDialog();
